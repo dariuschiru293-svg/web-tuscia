@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WEB TUSCIA — Siti Web per Attività Locali</title>
+
+<meta name="description" content="WEB TUSCIA realizza siti web moderni per attività locali a Bagnoregio, Viterbo e nella Tuscia.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#080808;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1120px,90%);
+    margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 0;
+    background:rgba(8,8,8,.82);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#b6ff00;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+    list-style:none;
+    color:#aaa;
+    font-size:14px;
+}
+
+.menu a{
+    transition:.2s;
+}
+
+.menu a:hover{
+    color:#b6ff00;
+}
+
+.nav-cta{
+    background:#b6ff00;
+    color:#000;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:800;
+    font-size:13px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:100px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:550px;
+    height:550px;
+    border-radius:50%;
+    background:rgba(182,255,0,.09);
+    filter:blur(100px);
+    right:-180px;
+    top:120px;
+}
+
+.hero-content{
+    max-width:850px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+    padding:7px 14px;
+    border:1px solid rgba(182,255,0,.4);
+    border-radius:30px;
+    color:#b6ff00;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:28px;
+}
+
+h1{
+    font-size:clamp(52px,9vw,100px);
+    line-height:.92;
+    letter-spacing:-6px;
+    margin-bottom:30px;
+}
+
+h1 span{
+    color:#b6ff00;
+}
+
+.hero-text{
+    max-width:650px;
+    color:#999;
+    font-size:19px;
+    margin-bottom:38px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+    background:#b6ff00;
+    color:#000;
+    padding:15px 24px;
+    border-radius:8px;
+    font-weight:900;
+    transition:.2s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    padding:14px 24px;
+    border:1px solid #333;
+    border-radius:8px;
+    color:#ddd;
+}
+
+.btn-secondary:hover{
+    border-color:#777;
+}
+
+/* NUMBERS */
+
+.stats{
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+    padding:28px 0;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:28px;
+}
+
+.stat span{
+    color:#777;
+    font-size:13px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:110px 0;
+}
+
+.label{
+    color:#b6ff00;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+h2{
+    font-size:clamp(38px,6vw,65px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:55px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.service{
+    padding:35px;
+    background:#101010;
+    border:1px solid #202020;
+    border-radius:16px;
+    transition:.25s;
+}
+
+.service:hover{
+    transform:translateY(-5px);
+    border-color:#444;
+}
+
+.service-number{
+    color:#b6ff00;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:50px;
+}
+
+.service h3{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.service p{
+    color:#858585;
+    font-size:15px;
+}
+
+/* WHY */
+
+.why{
+    background:#0d0d0d;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.why-text{
+    color:#999;
+    font-size:17px;
+}
+
+.points{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.point{
+    padding:22px;
+    background:#151515;
+    border:1px solid #242424;
+    border-radius:12px;
+}
+
+.point strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.point span{
+    color:#777;
+    font-size:14px;
+}
+
+/* PORTFOLIO */
+
+.portfolio{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.project{
+    height:320px;
+    padding:30px;
+    border-radius:16px;
+    border:1px solid #222;
+    background:
+        linear-gradient(135deg,#191919,#0d0d0d);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    overflow:hidden;
+    position:relative;
+}
+
+.project:before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(182,255,0,.08);
+    filter:blur(50px);
+    right:-40px;
+    top:-40px;
+}
+
+.project small{
+    color:#b6ff00;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    position:relative;
+}
+
+.project h3{
+    font-size:30px;
+    position:relative;
+}
+
+.project p{
+    color:#777;
+    position:relative;
+}
+
+/* PRICES */
+
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.price-card{
+    padding:35px;
+    background:#101010;
+    border:1px solid #222;
+    border-radius:16px;
+}
+
+.price-card.featured{
+    border:1px solid #b6ff00;
+    position:relative;
+}
+
+.most-popular{
+    position:absolute;
+    top:-13px;
+    right:20px;
+    background:#b6ff00;
+    color:#000;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:900;
+}
+
+.price-card h3{
+    font-size:22px;
+}
+
+.price{
+    font-size:45px;
+    font-weight:900;
+    margin:18px 0;
+}
+
+.price small{
+    color:#777;
+    font-size:13px;
+    font-weight:normal;
+}
+
+.price-card p{
+    color:#777;
+    font-size:14px;
+    min-height:60px;
+}
+
+.features{
+    list-style:none;
+    margin-top:25px;
+}
+
+.features li{
+    color:#aaa;
+    font-size:14px;
+    margin:10px 0;
+}
+
+.features li:before{
+    content:"✓ ";
+    color:#b6ff00;
+    font-weight:bold;
+}
+
+/* PROCESS */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.step{
+    padding:30px;
+    border-left:1px solid #333;
+}
+
+.step-number{
+    color:#b6ff00;
+    font-weight:900;
+    font-size:13px;
+}
+
+.step h3{
+    margin:15px 0 10px;
+    font-size:21px;
+}
+
+.step p{
+    color:#777;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(182,255,0,.11),transparent 45%),
+        #0d0d0d;
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.cta h2{
+    max-width:800px;
+    margin:0 auto 20px;
+}
+
+.cta p{
+    color:#888;
+    max-width:600px;
+    margin:0 auto 35px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px 0;
+    color:#666;
+    font-size:13px;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .menu{
+        display:none;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .services,
+    .portfolio,
+    .pricing,
+    .why-grid,
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        letter-spacing:-4px;
+    }
+
+    .hero-text{
+        font-size:16px;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="container nav">
+
+<a href="#" class="logo">
+WEB <span>TUSCIA</span>
+</a>
+
+<ul class="menu">
+<li><a href="#servizi">Servizi</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#prezzi">Prezzi</a></li>
+<li><a href="#contatti">Contatti</a></li>
+</ul>
+
+<a href="#contatti" class="nav-cta">
+Parliamone
+</a>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="container hero-content">
+
+<div class="badge">
+WEB DESIGN • TUSCIA • VITERBO
+</div>
+
+<h1>
+La tua attività.<br>
+<span>Online.</span>
+</h1>
+
+<p class="hero-text">
+Creiamo siti web moderni, veloci e ottimizzati per smartphone
+per ristoranti, negozi, professionisti e attività locali.
+</p>
+
+<div class="buttons">
+
+<a href="#contatti" class="btn-primary">
+Richiedi una demo gratuita →
+</a>
+
+<a href="#portfolio" class="btn-secondary">
+Guarda i progetti
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="container stats-grid">
+
+<div class="stat">
+<strong>100%</strong>
+<span>Responsive</span>
+</div>
+
+<div class="stat">
+<strong>24/7</strong>
+<span>La tua attività sempre online</span>
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+<span>Possibilità di crescita</span>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SERVIZI -->
+
+<section id="servizi">
+
+<div class="container">
+
+<div class="label">
+01 — Servizi
+</div>
+
+<h2>
+Costruiamo la tua<br>
+presenza online.
+</h2>
+
+<div class="services">
+
+<div class="service">
+<div class="service-number">01</div>
+<h3>Siti Web</h3>
+<p>
+Siti vetrina moderni per presentare
+la tua attività, i tuoi servizi e i tuoi contatti.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">02</div>
+<h3>Landing Page</h3>
+<p>
+Una pagina progettata per presentare
+un servizio e generare nuove richieste.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">03</div>
+<h3>Restyling</h3>
+<p>
+Hai già un sito ma sembra vecchio?
+Lo riprogettiamo con un design moderno.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">04</div>
+<h3>Manutenzione</h3>
+<p>
+Aggiornamenti, modifiche e assistenza
+per mantenere il sito sempre attuale.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- WHY -->
+
+<section class="why">
+
+<div class="container why-grid">
+
+<div>
+
+<div class="label">
+02 — Perché noi
+</div>
+
+<h2>
+Un sito deve<br>
+servire a qualcosa.
+</h2>
+
+<p class="why-text">
+Non realizziamo semplicemente pagine belle da vedere.
+L'obiettivo è rendere facile per un potenziale cliente
+trovare informazioni, contattarti e scegliere la tua attività.
+</p>
+
+</div>
+
+<div class="points">
+
+<div class="point">
+<strong>📱 Pensato per smartphone</strong>
+<span>
+La maggior parte dei clienti visiterà il sito dal telefono.
+</span>
+</div>
+
+<div class="point">
+<strong>⚡ Veloce e semplice</strong>
+<span>
+Informazioni importanti facilmente raggiungibili.
+</span>
+</div>
+
+<div class="point">
+<strong>📍 Locale</strong>
+<span>
+Lavoriamo con attività della Tuscia e della provincia di Viterbo.
+</span>
+</div>
+
+<div class="point">
+<strong>💬 Contatto diretto</strong>
+<span>
+WhatsApp, telefono, email e indicazioni sempre visibili.
+</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+
+<div class="container">
+
+<div class="label">
+03 — Portfolio
+</div>
+
+<h2>
+Progetti demo.
+</h2>
+
+<div class="portfolio">
+
+<div class="project">
+<small>RISTORANTE</small>
+<h3>La Tavola</h3>
+<p>Sito web per ristorante della Tuscia.</p>
+</div>
+
+<div class="project">
+<small>BARBER SHOP</small>
+<h3>Urban Barber</h3>
+<p>Landing page moderna per barber.</p>
+</div>
+
+<div class="project">
+<small>OFFICINA</small>
+<h3>Auto Service</h3>
+<p>Sito professionale per officina meccanica.</p>
+</div>
+
+<div class="project">
+<small>B&B</small>
+<h3>Casa Civita</h3>
+<p>Presenza online per struttura ricettiva.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section>
+
+<div class="container">
+
+<div class="label">
+04 — Come lavoriamo
+</div>
+
+<h2>
+Semplice.
+</h2>
+
+<div class="process">
+
+<div class="step">
+<div class="step-number">01</div>
+<h3>Ci racconti la tua attività</h3>
+<p>
+Parliamo di cosa fai, dei tuoi servizi
+e di cosa vuoi ottenere dal sito.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<h3>Prepariamo la demo</h3>
+<p>
+Costruiamo una prima proposta
+e te la mostriamo prima di procedere.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">03</div>
+<h3>Pubblicazione</h3>
+<p>
+Dopo l'approvazione, completiamo
+il progetto e lo rendiamo online.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PREZZI -->
+
+<section id="prezzi">
+
+<div class="container">
+
+<div class="label">
+05 — Prezzi
+</div>
+
+<h2>
+Partiamo dal necessario.
+</h2>
+
+<div class="pricing">
+
+<div class="price-card">
+
+<h3>Starter</h3>
+
+<div class="price">
+€199
+</div>
+
+<p>
+Per chi ha bisogno di una presenza
+online semplice e professionale.
+</p>
+
+<ul class="features">
+<li>1 pagina</li>
+<li>Design responsive</li>
+<li>Contatti</li>
+<li>Google Maps</li>
+</ul>
+
+</div>
+
+
+<div class="price-card featured">
+
+<div class="most-popular">
+PIÙ RICHIESTO
+</div>
+
+<h3>Business</h3>
+
+<div class="price">
+€299
+</div>
+
+<p>
+Per attività che vogliono presentarsi
+in modo completo sul web.
+</p>
+
+<ul class="features">
+<li>Fino a 5 pagine</li>
+<li>Design responsive</li>
+<li>WhatsApp</li>
+<li>Google Maps</li>
+<li>Galleria fotografica</li>
+<li>Ottimizzazione base SEO</li>
+</ul>
+
+</div>
+
+
+<div class="price-card">
+
+<h3>Manutenzione</h3>
+
+<div class="price">
+€30 <small>/ mese</small>
+</div>
+
+<p>
+Per mantenere il sito aggiornato
+dopo la pubblicazione.
+</p>
+
+<ul class="features">
+<li>Aggiornamento contenuti</li>
+<li>Piccole modifiche</li>
+<li>Assistenza</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="contatti">
+
+<div class="container">
+
+<div class="label">
+06 — Contatti
+</div>
+
+<h2>
+Hai un'attività?<br>
+Partiamo dalla tua demo.
+</h2>
+
+<p>
+Contattaci e raccontaci cosa fai.
+La prima idea per il tuo sito è gratuita.
+</p>
+
+<div class="buttons" style="justify-content:center;">
+
+<a href="https://wa.me/393000000000" class="btn-primary">
+Scrivici su WhatsApp →
+</a>
+
+<a href="mailto:info@webtuscia.it" class="btn-secondary">
+Email
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer">
+
+<div>
+© 2026 WEB TUSCIA
+</div>
+
+<div>
+Siti web per attività locali
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
