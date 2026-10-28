@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WEB TUSCIA — Siti Web che Portano Clienti alle Attività Locali</title>
+<title>WEB TUSCIA — Più Clienti per la Tua Attività Locale</title>
 
-<meta name="description" content="Sviluppo siti web e landing page ad alta conversione per ristoranti, B&B, negozi e attività a Bagnoregio, Viterbo e nella Tuscia. Demo gratuita senza impegno.">
+<meta name="description" content="Realizziamo siti web ed esempi grafici gratuiti per ristoranti, B&B, negozi e professionisti a Viterbo e in tutta la Tuscia.">
 
 <style>
 
@@ -46,7 +46,7 @@ nav{
     width:100%;
     z-index:1000;
     padding:18px 0;
-    background:rgba(8,8,8,.82);
+    background:rgba(8,8,8,.88);
     backdrop-filter:blur(16px);
     border-bottom:1px solid rgba(255,255,255,.07);
 }
@@ -86,15 +86,16 @@ nav{
 .nav-cta{
     background:#b6ff00;
     color:#000;
-    padding:10px 18px;
+    padding:10px 20px;
     border-radius:30px;
-    font-weight:800;
+    font-weight:900;
     font-size:13px;
     transition:.2s;
 }
 
 .nav-cta:hover{
-    transform:scale(1.03);
+    transform:scale(1.05);
+    box-shadow:0 0 15px rgba(182,255,0,.4);
 }
 
 /* HERO */
@@ -103,7 +104,7 @@ nav{
     min-height:100vh;
     display:flex;
     align-items:center;
-    padding-top:100px;
+    padding-top:110px;
     position:relative;
     overflow:hidden;
 }
@@ -111,37 +112,38 @@ nav{
 .hero:before{
     content:"";
     position:absolute;
-    width:550px;
-    height:550px;
+    width:600px;
+    height:600px;
     border-radius:50%;
-    background:rgba(182,255,0,.09);
-    filter:blur(100px);
+    background:rgba(182,255,0,.1);
+    filter:blur(120px);
     right:-180px;
-    top:120px;
+    top:100px;
 }
 
 .hero-content{
-    max-width:850px;
+    max-width:880px;
     position:relative;
     z-index:2;
 }
 
 .badge{
     display:inline-flex;
-    padding:7px 14px;
-    border:1px solid rgba(182,255,0,.4);
+    padding:8px 16px;
+    border:1px solid rgba(182,255,0,.5);
     border-radius:30px;
     color:#b6ff00;
     font-size:12px;
-    font-weight:700;
+    font-weight:800;
     margin-bottom:28px;
+    background:rgba(182,255,0,.05);
 }
 
 h1{
-    font-size:clamp(42px,8vw,82px);
-    line-height:1;
-    letter-spacing:-4px;
-    margin-bottom:30px;
+    font-size:clamp(40px,7.5vw,76px);
+    line-height:1.02;
+    letter-spacing:-3px;
+    margin-bottom:25px;
 }
 
 h1 span{
@@ -149,10 +151,14 @@ h1 span{
 }
 
 .hero-text{
-    max-width:680px;
-    color:#aaa;
+    max-width:700px;
+    color:#b3b3b3;
     font-size:19px;
-    margin-bottom:38px;
+    margin-bottom:35px;
+}
+
+.hero-text strong{
+    color:#fff;
 }
 
 .buttons{
@@ -164,39 +170,42 @@ h1 span{
 .btn-primary{
     background:#b6ff00;
     color:#000;
-    padding:16px 28px;
+    padding:18px 32px;
     border-radius:8px;
     font-weight:900;
-    font-size:15px;
+    font-size:16px;
     transition:.2s;
     display:inline-flex;
     align-items:center;
-    gap:8px;
+    gap:10px;
 }
 
 .btn-primary:hover{
-    transform:translateY(-2px);
-    box-shadow: 0 10px 20px rgba(182,255,0,.2);
+    transform:translateY(-3px);
+    box-shadow: 0 12px 25px rgba(182,255,0,.3);
 }
 
 .btn-secondary{
-    padding:16px 24px;
+    padding:18px 26px;
     border:1px solid #333;
     border-radius:8px;
     color:#ddd;
     font-size:15px;
+    font-weight:700;
 }
 
 .btn-secondary:hover{
     border-color:#777;
+    background:rgba(255,255,255,.03);
 }
 
-/* NUMBERS */
+/* NUMBERS / TRUST BAR */
 
 .stats{
     border-top:1px solid #222;
     border-bottom:1px solid #222;
     padding:28px 0;
+    background:#0a0a0a;
 }
 
 .stats-grid{
@@ -211,19 +220,20 @@ h1 span{
 
 .stat strong{
     display:block;
-    font-size:28px;
+    font-size:30px;
     color:#b6ff00;
+    font-weight:900;
 }
 
 .stat span{
-    color:#888;
+    color:#aaa;
     font-size:14px;
 }
 
 /* SECTIONS */
 
 section{
-    padding:110px 0;
+    padding:100px 0;
 }
 
 .label{
@@ -236,10 +246,50 @@ section{
 }
 
 h2{
-    font-size:clamp(36px,5vw,60px);
+    font-size:clamp(34px,5vw,56px);
     line-height:1.05;
-    letter-spacing:-3px;
-    margin-bottom:55px;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+
+.section-desc{
+    color:#999;
+    font-size:18px;
+    max-width:650px;
+    margin-bottom:50px;
+}
+
+/* AGITATION / PROBLEM SECTION */
+
+.problem-section{
+    background:#0d0d0d;
+    border-top:1px solid #1a1a1a;
+    border-bottom:1px solid #1a1a1a;
+}
+
+.problem-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:40px;
+}
+
+.problem-card{
+    padding:30px;
+    background:#141414;
+    border:1px solid #222;
+    border-radius:12px;
+}
+
+.problem-card h3{
+    color:#ff4d4d;
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.problem-card p{
+    color:#888;
+    font-size:15px;
 }
 
 /* SERVICES */
@@ -247,11 +297,11 @@ h2{
 .services{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:18px;
+    gap:20px;
 }
 
 .service{
-    padding:35px;
+    padding:38px;
     background:#101010;
     border:1px solid #202020;
     border-radius:16px;
@@ -260,23 +310,23 @@ h2{
 
 .service:hover{
     transform:translateY(-5px);
-    border-color:#444;
+    border-color:#b6ff00;
 }
 
 .service-number{
     color:#b6ff00;
-    font-size:12px;
-    font-weight:800;
-    margin-bottom:50px;
+    font-size:13px;
+    font-weight:900;
+    margin-bottom:40px;
 }
 
 .service h3{
-    font-size:25px;
+    font-size:24px;
     margin-bottom:12px;
 }
 
 .service p{
-    color:#858585;
+    color:#888;
     font-size:15px;
 }
 
@@ -291,11 +341,6 @@ h2{
     grid-template-columns:1fr 1fr;
     gap:60px;
     align-items:center;
-}
-
-.why-text{
-    color:#999;
-    font-size:17px;
 }
 
 .points{
@@ -313,11 +358,13 @@ h2{
 
 .point strong{
     display:block;
-    margin-bottom:5px;
+    font-size:17px;
+    margin-bottom:6px;
+    color:#fff;
 }
 
 .point span{
-    color:#777;
+    color:#888;
     font-size:14px;
 }
 
@@ -326,31 +373,30 @@ h2{
 .portfolio{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:18px;
+    gap:20px;
 }
 
 .project{
-    height:320px;
+    height:300px;
     padding:30px;
     border-radius:16px;
     border:1px solid #222;
-    background:
-        linear-gradient(135deg,#191919,#0d0d0d);
+    background:linear-gradient(135deg,#181818,#0a0a0a);
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    overflow:hidden;
     position:relative;
+    overflow:hidden;
 }
 
 .project:before{
     content:"";
     position:absolute;
-    width:180px;
-    height:180px;
+    width:200px;
+    height:200px;
     border-radius:50%;
-    background:rgba(182,255,0,.08);
-    filter:blur(50px);
+    background:rgba(182,255,0,.07);
+    filter:blur(60px);
     right:-40px;
     top:-40px;
 }
@@ -360,17 +406,49 @@ h2{
     font-size:11px;
     font-weight:800;
     letter-spacing:2px;
-    position:relative;
+    margin-bottom:6px;
 }
 
 .project h3{
-    font-size:30px;
-    position:relative;
+    font-size:28px;
 }
 
 .project p{
-    color:#777;
+    color:#888;
+    font-size:14px;
+}
+
+/* PROCESS */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.step{
+    padding:30px;
+    background:#101010;
+    border:1px solid #222;
+    border-radius:16px;
     position:relative;
+}
+
+.step-number{
+    color:#b6ff00;
+    font-weight:900;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.step h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.step p{
+    color:#888;
+    font-size:14px;
 }
 
 /* PRICES */
@@ -378,11 +456,11 @@ h2{
 .pricing{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:20px;
 }
 
 .price-card{
-    padding:35px;
+    padding:38px 30px;
     background:#101010;
     border:1px solid #222;
     border-radius:16px;
@@ -392,89 +470,63 @@ h2{
 }
 
 .price-card.featured{
-    border:1px solid #b6ff00;
+    border:2px solid #b6ff00;
     position:relative;
+    background:#12140d;
 }
 
 .most-popular{
     position:absolute;
-    top:-13px;
+    top:-14px;
     right:20px;
     background:#b6ff00;
     color:#000;
-    padding:5px 10px;
+    padding:4px 12px;
     border-radius:20px;
-    font-size:10px;
+    font-size:11px;
     font-weight:900;
+    letter-spacing:1px;
 }
 
 .price-card h3{
-    font-size:22px;
+    font-size:24px;
 }
 
 .price{
-    font-size:45px;
+    font-size:48px;
     font-weight:900;
-    margin:18px 0;
+    margin:15px 0;
+    color:#fff;
 }
 
 .price small{
     color:#777;
-    font-size:13px;
+    font-size:14px;
     font-weight:normal;
 }
 
 .price-card p{
-    color:#777;
+    color:#888;
     font-size:14px;
-    min-height:60px;
+    min-height:50px;
 }
 
 .features{
     list-style:none;
-    margin-top:25px;
-    margin-bottom:25px;
+    margin:25px 0;
 }
 
 .features li{
-    color:#aaa;
+    color:#ccc;
     font-size:14px;
-    margin:10px 0;
+    margin:12px 0;
 }
 
 .features li:before{
     content:"✓ ";
     color:#b6ff00;
     font-weight:bold;
-}
-
-/* PROCESS */
-
-.process{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.step{
-    padding:30px;
-    border-left:1px solid #333;
-}
-
-.step-number{
-    color:#b6ff00;
-    font-weight:900;
-    font-size:13px;
-}
-
-.step h3{
-    margin:15px 0 10px;
-    font-size:21px;
-}
-
-.step p{
-    color:#777;
-    font-size:14px;
+    margin-right:5px;
 }
 
 /* CTA */
@@ -482,21 +534,23 @@ h2{
 .cta{
     text-align:center;
     background:
-        radial-gradient(circle at center,rgba(182,255,0,.11),transparent 45%),
-        #0d0d0d;
+        radial-gradient(circle at center,rgba(182,255,0,.15),transparent 55%),
+        #0b0b0b;
     border-top:1px solid #222;
     border-bottom:1px solid #222;
+    padding:120px 0;
 }
 
 .cta h2{
-    max-width:800px;
+    max-width:850px;
     margin:0 auto 20px;
 }
 
 .cta p{
-    color:#888;
-    max-width:600px;
+    color:#aaa;
+    max-width:620px;
     margin:0 auto 35px;
+    font-size:18px;
 }
 
 /* FOOTER */
@@ -505,6 +559,7 @@ footer{
     padding:40px 0;
     color:#666;
     font-size:13px;
+    background:#050505;
 }
 
 .footer{
@@ -520,10 +575,8 @@ footer{
         display:none;
     }
 
-    .stats-grid{
-        grid-template-columns:1fr;
-    }
-
+    .stats-grid,
+    .problem-grid,
     .services,
     .portfolio,
     .pricing,
@@ -541,7 +594,7 @@ footer{
     }
 
     section{
-        padding:80px 0;
+        padding:70px 0;
     }
 
     .footer{
@@ -571,41 +624,41 @@ WEB <span>TUSCIA</span>
 <li><a href="#contatti">Contatti</a></li>
 </ul>
 
-<a href="https://wa.me/393890972695?text=Ciao!%20Ho%20un%27attività%20e%20vorrei%20informazioni%20per%20un%20sito%20web." target="_blank" class="nav-cta">
-Richiedi Demo
+<a href="https://wa.me/393890972695?text=Ciao!%20Vorrei%20richiedere%20la%20demo%20gratuita%20per%20la%20mia%20attività." target="_blank" class="nav-cta">
+Richiedi Demo Grafica
 </a>
 
 </div>
 </nav>
 
 
-<!-- HERO -->
+<!-- HERO (HOOOK + RISCHIO AZZERATO) -->
 
 <header class="hero">
 
 <div class="container hero-content">
 
 <div class="badge">
-📍 BAGNOREGIO • VITERBO • TUSCIA
+📍 VITERBO • TUSCIA • ATTIVITÀ LOCALI
 </div>
 
 <h1>
-I tuoi clienti ti cercano su smartphone.<br>
+Ogni giorno decine di clienti cercano la tua attività.<br>
 <span>Trova chi sceglie te.</span>
 </h1>
 
 <p class="hero-text">
-Realizziamo siti web veloci, moderni e pensati per portare clienti reali nel tuo locale o negozio a Bagnoregio e provincia. <strong>Prepariamo una bozza grafica gratuita prima di chiedere qualsiasi pagamento.</strong>
+Creiamo siti web ultra-veloci pensati per portare clienti reali nel tuo locale, negozio o studio professionale in provincia di Viterbo. <strong>Ti mostriamo prima una bozza grafica personalizzata 100% gratuita. Se non ti piace, non paghi nulla.</strong>
 </p>
 
 <div class="buttons">
 
-<a href="https://wa.me/393890972695?text=Ciao!%20Ho%20un%27attività%20e%20vorrei%20ricevere%20la%20demo%20gratuita%20del%20sito." target="_blank" class="btn-primary">
-Richiedi una demo gratuita →
+<a href="https://wa.me/393890972695?text=Ciao!%20Ho%20un%27attività%20nella%20Tuscia%20e%20vorrei%20vedere%20la%20demo%20gratuita%20del%20mio%20sito." target="_blank" class="btn-primary">
+Vedi la tua demo gratuita →
 </a>
 
 <a href="#portfolio" class="btn-secondary">
-Guarda i progetti
+Guarda gli esempi
 </a>
 
 </div>
@@ -615,7 +668,7 @@ Guarda i progetti
 </header>
 
 
-<!-- STATS -->
+<!-- TRUST BAR -->
 
 <div class="stats">
 
@@ -632,8 +685,8 @@ Guarda i progetti
 </div>
 
 <div class="stat">
-<strong>24/7</strong>
-<span>Tua attività visibile sempre</span>
+<strong>Diretto</strong>
+<span>Tasto WhatsApp & Chiamata</span>
 </div>
 
 </div>
@@ -641,52 +694,44 @@ Guarda i progetti
 </div>
 
 
-<!-- SERVIZI -->
+<!-- PROBLEMA (PAS FUNNEL) -->
 
-<section id="servizi">
+<section class="problem-section">
 
 <div class="container">
 
 <div class="label">
-01 — Servizi
+Il problema di oggi
 </div>
 
 <h2>
-Soluzioni pensate per<br>
-far crescere la tua attività.
+Cosa succede se il tuo sito<br>è vecchio o non esiste?
 </h2>
 
-<div class="services">
+<p class="section-desc">
+Oggi le persone non cercano più le attività sui volantini. Cercano da smartphone mentre sono in giro nella Tuscia.
+</p>
 
-<div class="service">
-<div class="service-number">01</div>
-<h3>Siti Web Vetrina</h3>
+<div class="problem-grid">
+
+<div class="problem-card">
+<h3>❌ Pagina lenta o illeggibile</h3>
 <p>
-Pagine eleganti per mostrare i tuoi prodotti, il menu, la storia del tuo locale e i recapiti diretti.
+Se il tuo sito ci mette più di 3 secondi a caricarsi su cellulare, il cliente chiude la pagina e passa al concorrente.
 </p>
 </div>
 
-<div class="service">
-<div class="service-number">02</div>
-<h3>Landing Page Promozionali</h3>
+<div class="problem-card">
+<h3>❌ Contatti nascosti</h3>
 <p>
-Una pagina focalizzata su una singola offerta o servizio, pensata per convertire i visitatori in chiamate e prenotazioni.
+Se orari, menu o numero di telefono non sono immediati da trovare, stai regalando prenotazioni e clienti ad altre attività.
 </p>
 </div>
 
-<div class="service">
-<div class="service-number">03</div>
-<h3>Restyling Completo</h3>
+<div class="problem-card">
+<h3>❌ Immagine trascurata</h3>
 <p>
-Hai un sito vecchio che non funziona bene dal telefono? Lo ammoderniamo mantenendo le cose migliori e moltiplicando la velocità.
-</p>
-</div>
-
-<div class="service">
-<div class="service-number">04</div>
-<h3>Assistenza & Aggiornamenti</h3>
-<p>
-Ci occupiamo di aggiornare orari, foto e listini prezzi al posto tuo, senza che tu debba perdere tempo con la tecnologia.
+Un sito datato trasmette poca cura. Un sito moderno, pulito ed elegante fa percepire subito la qualità del tuo lavoro.
 </p>
 </div>
 
@@ -697,7 +742,63 @@ Ci occupiamo di aggiornare orari, foto e listini prezzi al posto tuo, senza che 
 </section>
 
 
-<!-- WHY -->
+<!-- SERVIZI -->
+
+<section id="servizi">
+
+<div class="container">
+
+<div class="label">
+01 — Le nostre soluzioni
+</div>
+
+<h2>
+Pagine progettate per<br>
+generare contatti e vendite.
+</h2>
+
+<div class="services">
+
+<div class="service">
+<div class="service-number">01 / VETRINA</div>
+<h3>Siti Web per Attività Locali</h3>
+<p>
+Pagine eleganti per presentare al meglio i tuoi servizi, la tua storia, la mappa per raggiungerti e il contatto diretto.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">02 / PROMO</div>
+<h3>Landing Page per Offerte</h3>
+<p>
+Pagine singole pensate per lanciare un servizio specifico o una promozione e spingere l'utente a chiamarti o scriverti.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">03 / RESTYLING</div>
+<h3>Restyling Siti Esistenti</h3>
+<p>
+Hai già un sito ma non porta risultati o è vecchio? Lo riprogettiamo da zero rendendolo velocissimo da smartphone.
+</p>
+</div>
+
+<div class="service">
+<div class="service-number">04 / ZERO STRESS</div>
+<h3>Gestione e Assistenza</h3>
+<p>
+Modifichiamo prezzi, orari e foto al posto tuo. Non dovrai mai preoccuparti degli aspetti tecnici.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- WHY (PERCHÉ NOI) -->
 
 <section class="why">
 
@@ -706,16 +807,16 @@ Ci occupiamo di aggiornare orari, foto e listini prezzi al posto tuo, senza che 
 <div>
 
 <div class="label">
-02 — Perché noi
+02 — Perché Web Tuscia
 </div>
 
 <h2>
-Un sito deve far<br>
-incassare, non solo figurare.
+Basta siti complessi.<br>
+Serve concretezza.
 </h2>
 
-<p class="why-text">
-Non ti vendiamo fumo o paroloni tecnici. Il nostro unico obiettivo è fare in modo che chiunque cerchi il tuo servizio nella Tuscia trovi orari, contatti e indicazioni in un secondo.
+<p class="section-desc">
+Non ti facciamo perdere tempo con parole in comprensibili. Costruiamo strumenti semplici per farti lavorare di più.
 </p>
 
 </div>
@@ -723,30 +824,30 @@ Non ti vendiamo fumo o paroloni tecnici. Il nostro unico obiettivo è fare in mo
 <div class="points">
 
 <div class="point">
-<strong>📱 100% Mobile First</strong>
+<strong>📱 Pieno focus su Smartphone</strong>
 <span>
-Oltre l'80% delle persone cerca ristoranti o negozi dal cellulare mentre è in giro.
+Oltre l'85% dei clienti cerca ristoranti, negozi o servizi artigianali dal cellulare.
 </span>
 </div>
 
 <div class="point">
-<strong>⚡ Caricamento Immediato</strong>
+<strong>💬 Tasto WhatsApp in Evidenza</strong>
 <span>
-Siti leggeri che si aprono all'istante anche dove c'è poca copertura di rete.
+Permetti ai clienti della Tuscia di prenotare o chiederti informazioni con 1 solo click.
 </span>
 </div>
 
 <div class="point">
-<strong>📍 Presenza Locale</strong>
+<strong>📍 Presenza e Supporto Locale</strong>
 <span>
-Siamo di Bagnoregio: ci parli di persona o su WhatsApp in qualsiasi momento.
+Siamo della Tuscia: ti rispondiamo subito, senza call center o attese infinite.
 </span>
 </div>
 
 <div class="point">
-<strong>💬 Tasto WhatsApp Diretto</strong>
+<strong>🔒 Garanzia 0 Rischio</strong>
 <span>
-I tuoi clienti possono inviarti un messaggio o prenotare con un solo tocco sul display.
+Prepariamo la prima bozza gratis: la vedi sul tuo telefono e poi decidi se procedere.
 </span>
 </div>
 
@@ -764,37 +865,38 @@ I tuoi clienti possono inviarti un messaggio o prenotare con un solo tocco sul d
 <div class="container">
 
 <div class="label">
-03 — Portfolio
+03 — Progetti Demo
 </div>
 
 <h2>
-Esempi di progetti demo.
+Guarda come potrebbe<br>
+apparire la tua attività.
 </h2>
 
 <div class="portfolio">
 
 <div class="project">
-<small>RISTORANTE & TRATTORIA</small>
-<h3>La Tavola</h3>
-<p>Sito per ristorante con menu digitale e tasto prenotazione rapida.</p>
+<small>RISTORAZIONE & FOOD</small>
+<h3>La Tavola Trattoria</h3>
+<p>Sito ottimizzato per menu digitale, indicazioni stradali e prenotazioni WhatsApp.</p>
 </div>
 
 <div class="project">
-<small>BARBER SHOP & BEAUTY</small>
-<h3>Urban Barber</h3>
-<p>Landing page moderna per listino prezzi e prenotazione appuntamenti.</p>
+<small>BARBER & SALONI</small>
+<h3>Urban Barber Shop</h3>
+<p>Landing page moderna per listino prezzi e prenotazione appuntamenti rapida.</p>
 </div>
 
 <div class="project">
-<small>OFFICINA & ARTIGIANI</small>
-<h3>Auto Service</h3>
-<p>Sito professionale per servizi meccanici, soccorso stradale e mappe.</p>
+<small>OFFICINE & ARTIGIANI</small>
+<h3>Auto Service Tuscia</h3>
+<p>Sito chiaro per soccorso stradale immediato, servizi meccanici e contatti.</p>
 </div>
 
 <div class="project">
-<small>B&B & STRUTTURE RICETTIVE</small>
-<h3>Casa Civita</h3>
-<p>Presenza online per strutture turistiche a Bagnoregio e dintorni.</p>
+<small>TURISMO & B&B</small>
+<h3>Casa Civita & Relais</h3>
+<p>Struttura ricettiva per attrarre turisti in visita nella provincia di Viterbo.</p>
 </div>
 
 </div>
@@ -804,43 +906,44 @@ Esempi di progetti demo.
 </section>
 
 
-<!-- PROCESS -->
+<!-- PROCESS (PASSI CHIARI) -->
 
 <section>
 
 <div class="container">
 
 <div class="label">
-04 — Come lavoriamo
+04 — Come Funziona
 </div>
 
 <h2>
-Senza rischi per te.
+3 passaggi. Zero rischi.
 </h2>
 
 <div class="process">
 
 <div class="step">
 <div class="step-number">01</div>
-<h3>1. Ci racconti la tua idea</h3>
+<h3>Ci racconti la tua attività</h3>
 <p>
-Ci spieghi cosa fa la tua attività, quali clienti vuoi attirare e cosa ti serve maggiormente.
+Ci spieghi cosa vendi, cosa vuole il tuo cliente tipo e cosa vuoi mettere in evidenza.
 </p>
 </div>
 
 <div class="step">
 <div class="step-number">02</div>
-<h3>2. Prepariamo la Demo Gratuita</h3>
+<h3>Prepariamo la Demo Gratuita</h3>
 <p>
-Creiamo una proposta su misura per te e te la mostriamo su cellulare. Se non ti piace, non paghi nulla.
+Lavoriamo alla bozza e ti inviamo il link per vederla direttamente dal tuo cellulare.
 </p>
+
 </div>
 
 <div class="step">
 <div class="step-number">03</div>
-<h3>3. Mettiamo il sito Online</h3>
+<h3>Pubblicazione e Risultati</h3>
 <p>
-Approvata la demo, colleghiamo il tuo dominio, la mappa, WhatsApp e pubblichiamo tutto.
+Se la demo ti piace, la completiamo, colleghiamo il tuo dominio, la mappa e la mettiamo online.
 </p>
 </div>
 
@@ -862,7 +965,8 @@ Approvata la demo, colleghiamo il tuo dominio, la mappa, WhatsApp e pubblichiamo
 </div>
 
 <h2>
-Investimento chiaro,<br>zero sorprese.
+Prezzi trasparenti.<br>
+Nessun costo nascosto.
 </h2>
 
 <div class="pricing">
@@ -876,25 +980,25 @@ Investimento chiaro,<br>zero sorprese.
 </div>
 
 <p>
-La soluzione perfetta per chi desidera una presenza online essenziale ma curata e d'impatto.
+Perfetto per chi ha bisogno di una presenza semplice, moderna ed efficace.
 </p>
 
 <ul class="features">
-<li>Sito Monopagina (Landing Page)</li>
-<li>Design 100% Responsive</li>
-<li>Integrazione Mappa e Contatti</li>
-<li>Pulsante Chiamata / WhatsApp</li>
+<li>Landing Page Monopagina</li>
+<li>Versione Mobile Perfezionata</li>
+<li>Google Maps e Mappa</li>
+<li>Pulsante Diretto WhatsApp / Chiama</li>
 </ul>
 </div>
 
-<a href="https://wa.me/393890972695?text=Ciao!%20Vorrei%20maggiori%20informazioni%20sul%20pacchetto%20Starter%20da%20199€." target="_blank" class="btn-secondary" style="text-align:center; margin-top:20px;">Scegli Starter</a>
+<a href="https://wa.me/393890972695?text=Ciao!%20Vorrei%20richiedere%20la%20demo%20gratuita%20per%20il%20pacchetto%20Starter%20(199€)." target="_blank" class="btn-secondary" style="text-align:center; margin-top:20px;">Richiedi Demo Starter</a>
 </div>
 
 
 <div class="price-card featured">
 
 <div class="most-popular">
-CONSIGLIATO
+PIÙ RICHIESTO
 </div>
 
 <div>
@@ -905,20 +1009,20 @@ CONSIGLIATO
 </div>
 
 <p>
-Per attività che vogliono mostrare servizi differenti, gallerie foto e posizionarsi al meglio.
+La scelta ideale per attività che vogliono presentare più servizi o prodotti.
 </p>
 
 <ul class="features">
-<li>Sito strutturato (Fino a 5 Pagine)</li>
-<li>Design personalizzato premium</li>
-<li>Tasto WhatsApp diretto</li>
-<li>Google Maps + Indicazioni</li>
-<li>Galleria Fotografica Prodotti/Locali</li>
-<li>Ottimizzazione base per Google</li>
+<li>Sito Multi-pagina (Fino a 5 pagine)</li>
+<li>Design Personalizzato Premium</li>
+<li>Tasto WhatsApp & Prenotazione Rapida</li>
+<li>Galleria Foto e Prodotti</li>
+<li>Indicazioni Mappa Integrate</li>
+<li>Ottimizzazione Base Google</li>
 </ul>
 </div>
 
-<a href="https://wa.me/393890972695?text=Ciao!%20Vorrei%20richiedere%20la%20demo%20gratuita%20per%20il%20pacchetto%20Business%20da%20299€." target="_blank" class="btn-primary" style="justify-content:center; margin-top:20px;">Richiedi Demo Business</a>
+<a href="https://wa.me/393890972695?text=Ciao!%20Vorrei%20richiedere%20la%20demo%20gratuita%20per%20il%20pacchetto%20Business%20(299€)." target="_blank" class="btn-primary" style="justify-content:center; margin-top:20px;">Richiedi Demo Business →</a>
 </div>
 
 
@@ -931,18 +1035,18 @@ Per attività che vogliono mostrare servizi differenti, gallerie foto e posizion
 </div>
 
 <p>
-Pensiamo a tutto noi dopo la pubblicazione, così tu ti concentri solo sul tuo lavoro.
+Gestiamo noi ogni aggiornamento, orario e modifica al posto tuo.
 </p>
 
 <ul class="features">
-<li>Aggiornamento testi e prezzi</li>
-<li>Inserimento nuove foto/offerte</li>
+<li>Aggiornamento contenuti e prezzi</li>
+<li>Inserimento foto o eventi</li>
 <li>Assistenza prioritaria WhatsApp</li>
-<li>Verifica periodica del funzionamento</li>
+<li>Sito sempre sicuro e aggiornato</li>
 </ul>
 </div>
 
-<a href="https://wa.me/393890972695?text=Ciao!%20Vorrei%20informazioni%20sul%20servizio%20di%20manutenzione." target="_blank" class="btn-secondary" style="text-align:center; margin-top:20px;">Info Manutenzione</a>
+<a href="https://wa.me/393890972695?text=Ciao!%20Vorrei%20maggiori%20informazioni%20sulla%20gestione%20mensile." target="_blank" class="btn-secondary" style="text-align:center; margin-top:20px;">Info Gestione</a>
 </div>
 
 </div>
@@ -952,33 +1056,33 @@ Pensiamo a tutto noi dopo la pubblicazione, così tu ti concentri solo sul tuo l
 </section>
 
 
-<!-- CTA -->
+<!-- CTA FINALE -->
 
 <section class="cta" id="contatti">
 
 <div class="container">
 
 <div class="label">
-06 — Contatti
+06 — Prova senza impegno
 </div>
 
 <h2>
-Vuoi vedere come verrebbe il sito<br>
-per la tua attività?
+Vuoi vedere la bozza del tuo nuovo sito<br>
+prima di spendere un solo euro?
 </h2>
 
 <p>
-Scrivici su WhatsApp senza impegno. Ti prepareremo una bozza grafica completamente gratuita.
+Scrivici ora su WhatsApp. Raccontaci di cosa si occupa la tua attività nella Tuscia e ti invieremo una proposta grafica 100% gratuita.
 </p>
 
 <div class="buttons" style="justify-content:center;">
 
-<a href="https://wa.me/393890972695?text=Ciao!%20Ho%20un%27attività%20e%20vorrei%20ricevere%20la%20demo%20gratuita%20del%20sito." target="_blank" class="btn-primary">
-Scrivici su WhatsApp →
+<a href="https://wa.me/393890972695?text=Ciao!%20Ho%20un%27attività%20nella%20Tuscia%20e%20vorrei%20ricevere%20la%20demo%20gratuita%20del%20sito." target="_blank" class="btn-primary">
+Richiedi la tua demo gratuita su WhatsApp →
 </a>
 
 <a href="mailto:dariuschiru293@gmail.com" class="btn-secondary">
-Invia un'Email
+Scrivici via Email
 </a>
 
 </div>
@@ -995,11 +1099,11 @@ Invia un'Email
 <div class="container footer">
 
 <div>
-© 2026 WEB TUSCIA — Siti web per attività locali a Bagnoregio e provincia di Viterbo
+© 2026 WEB TUSCIA — Realizzazione Siti Web per Attività Locali a Viterbo e provincia.
 </div>
 
 <div>
-Sviluppato con passione nella Tuscia
+Servizi Web per la Tuscia
 </div>
 
 </div>
