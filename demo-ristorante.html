@@ -3,84 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trattoria L'Archetto — Viterbo | Demo Ufficiale</title>
+<title>Trattoria L'Archetto — Viterbo | Demo Ufficiale Web Tuscia</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;background:#0d0d0d;color:#fff;line-height:1.6;}
-.container{width:min(900px,90%);margin:auto;padding:40px 0;}
-header{background:#141414;border-bottom:1px solid #222;padding:20px 0;text-align:center;}
-h1{font-size:32px;margin-bottom:5px;}
-h1 span{color:#b6ff00;}
-.sub{color:#888;font-size:14px;}
-.banner-demo{background:#b6ff00;color:#000;text-align:center;padding:12px;font-weight:900;font-size:14px;}
-.section{margin:40px 0;}
-.section h2{color:#b6ff00;font-size:22px;margin-bottom:20px;border-bottom:1px solid #222;padding-bottom:10px;}
-.menu-item{background:#161616;border:1px solid #222;padding:20px;border-radius:10px;margin-bottom:15px;display:flex;justify-content:space-between;align-items:center;}
-.menu-item h3{font-size:18px;margin-bottom:5px;}
-.menu-item p{color:#888;font-size:14px;}
-.price{color:#b6ff00;font-weight:bold;font-size:18px;}
-.btn{display:block;width:100%;background:#25D366;color:#fff;text-align:center;padding:16px;border-radius:8px;font-weight:bold;font-size:16px;text-decoration:none;margin-top:30px;}
-footer{text-align:center;padding:30px;color:#555;font-size:12px;border-top:1px solid #222;}
+:root {
+  --primary: #c9a227;
+  --primary-hover: #e5b82c;
+  --bg-dark: #0a0a0c;
+  --card-bg: #141418;
+  --text-light: #f4f4f6;
+  --text-muted: #9a9ab0;
+  --accent-green: #25d366;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.5; padding-bottom: 70px; }
+
+/* Banner agenzia */
+.agency-bar { background: linear-gradient(90deg, #111 0%, #1f1f28 100%); border-bottom: 1px solid var(--border); padding: 10px 15px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; text-align: center; color: var(--text-muted); }
+.agency-bar strong { color: var(--primary); }
+.agency-btn { background: var(--primary); color: #000; padding: 4px 10px; border-radius: 4px; font-weight: bold; text-decoration: none; font-size: 11px; }
+
+/* Hero Section */
+.hero { position: relative; height: 280px; background: linear-gradient(0deg, var(--bg-dark) 0%, rgba(10,10,12,0.4) 100%), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+.hero-badge { background: rgba(201, 162, 39, 0.2); color: var(--primary); border: 1px solid var(--primary); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 20px; width: fit-content; margin-bottom: 8px; }
+.hero h1 { font-size: 28px; font-weight: 800; line-height: 1.2; margin-bottom: 4px; }
+.hero p { color: var(--text-muted); font-size: 13px; display: flex; align-items: center; gap: 5px; }
+
+/* Quick Info Strip */
+.info-strip { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--card-bg); border-y: 1px solid var(--border); padding: 12px 10px; text-align: center; }
+.info-item { border-right: 1px solid var(--border); padding: 0 5px; }
+.info-item:last-child { border-right: none; }
+.info-item span { display: block; font-size: 11px; color: var(--text-muted); }
+.info-item strong { font-size: 12px; color: var(--text-light); }
+
+/* Main Container */
+.container { padding: 20px 15px; max-width: 600px; margin: 0 auto; }
+
+.section-title { font-size: 18px; font-weight: 700; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); margin-left: 15px; }
+
+/* Menu Nav Tabs */
+.menu-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px; scrollbar-width: none; }
+.tab-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text-muted); padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: 0.2s; }
+.tab-btn.active { background: var(--primary); color: #000; border-color: var(--primary); }
+
+/* Menu Cards */
+.menu-grid { display: flex; flex-direction: column; gap: 15px; }
+.dish-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; gap: 12px; padding: 12px; }
+.dish-img { width: 90px; height: 90px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
+.dish-info { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.dish-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.dish-title { font-size: 15px; font-weight: 700; color: var(--text-light); }
+.dish-price { font-size: 15px; font-weight: 800; color: var(--primary); }
+.dish-desc { font-size: 12px; color: var(--text-muted); margin: 4px 0 8px 0; }
+.dish-tag { font-size: 10px; background: rgba(255,255,255,0.05); color: var(--primary); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(201,162,39,0.3); width: fit-content; }
+
+/* Feature Box */
+.features-box { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 25px 0; }
+.feat-item { background: var(--card-bg); border: 1px solid var(--border); padding: 12px; border-radius: 10px; font-size: 12px; }
+.feat-item 💡 { font-size: 16px; margin-bottom: 4px; display: block; }
+
+/* Booking Section */
+.booking-card { background: linear-gradient(145deg, #181820 0%, #101015 100%); border: 1px solid var(--primary); border-radius: 16px; padding: 20px; text-align: center; margin-top: 30px; }
+.booking-card h3 { font-size: 20px; margin-bottom: 6px; color: var(--text-light); }
+.booking-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+
+.btn-whatsapp { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--accent-green); color: #fff; font-weight: 700; font-size: 15px; text-decoration: none; padding: 14px; border-radius: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+
+/* Footer */
+footer { text-align: center; padding: 30px 15px; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+footer strong { color: var(--primary); }
 </style>
 </head>
 <body>
 
-<div class="banner-demo">
-⚡ QUESTA È UNA BOZZA DIMOSTRATIVA CREATA DA WEB TUSCIA PER LA TRATTORIA L'ARCHETTO
+<!-- AGENT HEADER -->
+<div class="agency-bar">
+  <div>⚡ PROTOTIPO ESCLUSIVO REALIZZATO DA <strong>WEB TUSCIA</strong></div>
+  <a href="https://dariuschiru293-svg.github.io/web-tuscia/" class="agency-btn">RICHIEDI SITO</a>
 </div>
 
-<header>
-<div class="container" style="padding:10px 0;">
-<h1>Trattoria <span>L'Archetto</span></h1>
-<div class="sub">📍 Via S. Cristoforo, Viterbo Centro Storico</div>
+<!-- HERO HEADER -->
+<div class="hero">
+  <div class="hero-badge">Cucina Tipica Viterbese</div>
+  <h1>Trattoria L'Archetto</h1>
+  <p>📍 Via S. Cristoforo, 12 — Viterbo Centro Storico</p>
 </div>
-</header>
+
+<!-- QUICK INFO -->
+<div class="info-strip">
+  <div class="info-item">
+    <span>ORARI</span>
+    <strong>12:30-15 / 19:30-23</strong>
+  </div>
+  <div class="info-item">
+    <span>VALUTAZIONE</span>
+    <strong>⭐ 4.8 / 5.0 (340+)</strong>
+  </div>
+  <div class="info-item">
+    <span>PRENOTAZIONI</span>
+    <strong>WhatsApp Diretto</strong>
+  </div>
+</div>
 
 <div class="container">
 
-<div class="section">
-<h2>I Nostri Piatti Tipici</h2>
+  <!-- HIGHLIGHT FEATURES -->
+  <div class="features-box">
+    <div class="feat-item">
+      🍝 <strong>Pasta Fresca</strong><br>Fatta a mano ogni mattina come tradizione.
+    </div>
+    <div class="feat-item">
+      🍷 <strong>Vini della Tuscia</strong><br>Selezione delle migliori cantine locali.
+    </div>
+  </div>
 
-<div class="menu-item">
-<div>
-<h3>Lombricelli alla Viterbese</h3>
-<p>Pasta fresca fatta in casa con pomodoro, aglio, peperoncino e mentuccia.</p>
-</div>
-<div class="price">€10</div>
-</div>
+  <!-- MENU SECTION -->
+  <div class="section-title">Menu Digitale</div>
 
-<div class="menu-item">
-<div>
-<h3>Acquacotta Tradizionale</h3>
-<p>Zuppa tipica della Tuscia con cicoria, pane raffermo, uovo in camicia e olio EVO.</p>
-</div>
-<div class="price">€9</div>
-</div>
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="showCategory('primi')">Primi Tradizionali</button>
+    <button class="tab-btn" onclick="showCategory('secondi')">Secondi & Carni</button>
+    <button class="tab-btn" onclick="showCategory('dolci')">Dolci & Carta Vini</button>
+  </div>
 
-<div class="menu-item">
-<div>
-<h3>Saltimbocca alla viterbese</h3>
-<p>Carne locale selezionata con salvia e prosciutto crudo.</p>
-</div>
-<div class="price">€12</div>
-</div>
+  <div class="menu-grid" id="menu-container">
+    
+    <!-- PRIMI -->
+    <div class="dish-card category-item primi">
+      <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=300&q=80" class="dish-img" alt="Lombricelli">
+      <div class="dish-info">
+        <div>
+          <div class="dish-header">
+            <div class="dish-title">Lombricelli alla Viterbese</div>
+            <div class="dish-price">€ 11,00</div>
+          </div>
+          <div class="dish-desc">Pasta fresca fatta in casa con sugo di pomodoro, aglio, peperoncino e mentuccia fresca.</div>
+        </div>
+        <div class="dish-tag">Piatto Tipico</div>
+      </div>
+    </div>
 
-</div>
+    <div class="dish-card category-item primi">
+      <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=300&q=80" class="dish-img" alt="Acquacotta">
+      <div class="dish-info">
+        <div>
+          <div class="dish-header">
+            <div class="dish-title">Acquacotta della Tuscia</div>
+            <div class="dish-price">€ 10,00</div>
+          </div>
+          <div class="dish-desc">Zuppa contadina con cicoria di campo, pane di baccalà raffermo, uovo in camicia e olio EVO locale.</div>
+        </div>
+        <div class="dish-tag">Ricetta Storica</div>
+      </div>
+    </div>
 
-<div class="section">
-<h2>Prenota un Tavolo</h2>
-<p style="color:#aaa; font-size:15px; margin-bottom:15px;">Vuoi riservare un tavolo nel nostro locale nel centro storico di Viterbo? Clicca il pulsante qui sotto per scriverci direttamente su WhatsApp.</p>
+    <!-- SECONDI -->
+    <div class="dish-card category-item secondi" style="display:none;">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=300&q=80" class="dish-img" alt="Carni">
+      <div class="dish-info">
+        <div>
+          <div class="dish-header">
+            <div class="dish-title">Coniglio alla Cacciatora</div>
+            <div class="dish-price">€ 14,00</div>
+          </div>
+          <div class="dish-desc">Coniglio locale sfumato con vino bianco Est! Est!! Est!!!, olive e rosmarino.</div>
+        </div>
+        <div class="dish-tag">Carne Locale</div>
+      </div>
+    </div>
 
-<a href="https://wa.me/393890972695?text=Salve!%20Vorrei%20prenotare%20un%20tavolo%20alla%20Trattoria%20L'Archetto." class="btn" target="_blank">
-💬 Prenota Tavolo via WhatsApp
-</a>
-</div>
+    <!-- DOLCI -->
+    <div class="dish-card category-item dolci" style="display:none;">
+      <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=300&q=80" class="dish-img" alt="Tozzetti">
+      <div class="dish-info">
+        <div>
+          <div class="dish-header">
+            <div class="dish-title">Tozzetti alle Nocciole di Caprarola</div>
+            <div class="dish-price">€ 5,00</div>
+          </div>
+          <div class="dish-desc">Serviti con un bicchiere di Vin Santo della casa.</div>
+        </div>
+        <div class="dish-tag">Artigianale</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOOKING SECTION -->
+  <div class="booking-card">
+    <h3>Prenota un Tavolo</h3>
+    <p>Nessuna attesa al telefono. Fissa la tua prenotazione direttamente su WhatsApp in un click.</p>
+    
+    <a href="https://wa.me/393890972695?text=Salve!%20Vorrei%20prenotare%20un%20tavolo%20alla%20Trattoria%20L'Archetto." target="_blank" class="btn-whatsapp">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      Riserva Tavolo via WhatsApp
+    </a>
+  </div>
 
 </div>
 
 <footer>
-Demo progettata a scopo dimostrativo da Web Tuscia • Viterbo
+  Progetto dimostrativo realizzato da <strong>Web Tuscia</strong>.<br>
+  Tutti i diritti riservati • Viterbo
 </footer>
+
+<script>
+function showCategory(cat) {
+  // Cambio tab attivo
+  const buttons = document.querySelectorAll('.tab-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Mostra/Nascondi Piatti
+  const items = document.querySelectorAll('.category-item');
+  items.forEach(item => {
+    if (item.classList.contains(cat)) {
+      item.style.display = 'flex';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>
 
 </body>
 </html>
