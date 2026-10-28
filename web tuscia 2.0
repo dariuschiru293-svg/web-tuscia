@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="meta-title">WEB TUSCIA — Siti Web Moderni per Attività Locali</title>
+  <meta name="description" id="meta-desc" content="Progettiamo siti web moderni, veloci e curati per artigiani, ristoratori, professionisti e piccole imprese nella Tuscia e nel Lazio." />
+  
+  <!-- Open Graph / Meta Sociali -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" id="og-title" content="WEB TUSCIA — Siti Web per Attività Locali" />
+  <meta property="og:description" id="og-desc" content="Siti web curati nei dettagli, ottimizzati per smartphone e progettati per valorizzare le imprese del territorio." />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <link rel="canonical" href="https://webtuscia.placeholder.it/" />
+
+  <!-- Font tipografici selezionati per eleganza e leggibilità -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* -------------------------------------------------------------
+       PALETTE E VARIABILI DI DESIGN
+       Blu Notte: #172B36 | Avorio Caldo: #F5F1E8 | Bronzo: #B58B5A
+       ------------------------------------------------------------- */
+    :root {
+      --bg-main: #F5F1E8;
+      --bg-surface: #FFFFFF;
+      --bg-dark: #172B36;
+      --bg-dark-soft: #1F3847;
+      --text-main: #172B36;
+      --text-muted: #596E79;
+      --text-light: #F5F1E8;
+      --text-light-muted: #CBD5E1;
+      --bronze: #B58B5A;
+      --bronze-dark: #976F40;
+      --bronze-light: #E8D8C3;
+      --border-light: rgba(23, 43, 54, 0.12);
+      --border-dark: rgba(245, 241, 232, 0.15);
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-subtle: 0 4px 20px -2px rgba(23, 43, 54, 0.06);
+      --shadow-elevated: 0 12px 32px -4px rgba(23, 43, 54, 0.12);
+      --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Accessibilità e Focus Ring */
+    :focus-visible {
+      outline: 2px solid var(--bronze);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Tipografia comune */
+    h1, h2, h3, .serif-font {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--text-muted);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Bottoni e Controlli */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      border: 1px solid transparent;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background-color: var(--bronze);
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background-color: var(--bronze-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-main);
+      border-color: var(--border-light);
+    }
+    .btn-secondary:hover {
+      background-color: rgba(23, 43, 54, 0.04);
+      border-color: var(--text-main);
+    }
+
+    .btn-dark {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+    .btn-dark:hover {
+      background-color: var(--bg-dark-soft);
+    }
+
+    .badge-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--bronze-dark);
+      background-color: var(--bronze-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.85rem;
+    }
+
+    /* -------------------------------------------------------------
+       1. HEADER E NAVIGAZIONE
+       ------------------------------------------------------------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background-color: rgba(245, 241, 232, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    /* Logo Tipografico Moderno */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--bronze);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      border-radius: 2px;
+    }
+    .logo-text {
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .logo-text small {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--bronze);
+      letter-spacing: 0.22em;
+      margin-top: 2px;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--bronze);
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: inline-flex;
+      background-color: rgba(23, 43, 54, 0.06);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+      border: 1px solid var(--border-light);
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .lang-btn.active {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    .mobile-menu-trigger {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-light);
+      padding: 0.5rem 0.65rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    /* -------------------------------------------------------------
+       2. HERO SECTION
+       ------------------------------------------------------------- */
+    .hero-section {
+      padding: 5.5rem 0 4.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.85rem;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+    }
+    .hero-title span {
+      color: var(--bronze);
+      font-style: italic;
+    }
+    .hero-lead {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 580px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero-guarantees {
+      display: flex;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .hero-guarantees span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hero-card-preview {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-elevated);
+      position: relative;
+    }
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .hero-card-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .hero-card-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--border-light);
+    }
+
+    /* -------------------------------------------------------------
+       SEZIONI COMUNI E GRIGLIE
+       ------------------------------------------------------------- */
+    section {
+      padding: 5rem 0;
+    }
+    .section-header {
+      margin-bottom: 3.2rem;
+      max-width: 680px;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-top: 0.4rem;
+      margin-bottom: 0.85rem;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+    }
+
+    /* -------------------------------------------------------------
+       3. SERVIZI
+       ------------------------------------------------------------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 1.75rem;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      border-color: var(--bronze);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-subtle);
+    }
+    .service-icon {
+      font-size: 1.4rem;
+      color: var(--bronze);
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.65rem;
+      color: var(--text-main);
+    }
+    .service-card p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .service-note-box {
+      margin-top: 2.5rem;
+      background-color: rgba(23, 43, 54, 0.03);
+      border-left: 3px solid var(--bronze);
+      padding: 1.2rem 1.5rem;
+      font-size: 0.88rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    /* -------------------------------------------------------------
+       4. PORTFOLIO & DEMO RESTAURANT
+       ------------------------------------------------------------- */
+    .portfolio-featured {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-elevated);
+    }
+    .demo-banner-strip {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 0.65rem 1.5rem;
+      font-size: 0.82rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .demo-banner-badge {
+      background-color: var(--bronze);
+      color: #FFFFFF;
+      padding: 2px 8px;
+      font-weight: 700;
+      border-radius: 2px;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+    }
+    .featured-content {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    /* Schede in preparazione */
+    .portfolio-grid-upcoming {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .upcoming-card {
+      border: 1px dashed var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 1.75rem;
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+    .upcoming-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .upcoming-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Mockup Interattivo Ristorante (Modal o View) */
+    .restaurant-mockup-wrapper {
+      background: #111e26;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      color: #F8FAFC;
+      font-size: 0.88rem;
+    }
+    .mockup-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .mockup-brand {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: #E2D3B3;
+      letter-spacing: 0.02em;
+    }
+    .mockup-nav {
+      font-size: 0.78rem;
+      color: #94A3B8;
+      display: flex;
+      gap: 1rem;
+    }
+    .mockup-dish {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+    }
+    .dish-title {
+      font-weight: 600;
+      color: #F1F5F9;
+      display: block;
+    }
+    .dish-desc {
+      font-size: 0.75rem;
+      color: #94A3B8;
+    }
+    .dish-price {
+      font-weight: 700;
+      color: #E2D3B3;
+    }
+    .mockup-cta-row {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .mockup-whatsapp-btn {
+      background-color: #25D366;
+      color: #FFFFFF;
+      font-weight: 600;
+      padding: 0.5rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* -------------------------------------------------------------
+       5. METODO DI LAVORO
+       ------------------------------------------------------------- */
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      position: relative;
+    }
+    .process-step {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      padding: 1.8rem;
+      border-radius: var(--radius-sm);
+      position: relative;
+    }
+    .step-number {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--bronze);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .process-step h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.65rem;
+    }
+    .process-step p {
+      font-size: 0.9rem;
+    }
+
+    /* -------------------------------------------------------------
+       6. PERCHÉ SCEGLIERCI
+       ------------------------------------------------------------- */
+    .reasons-section {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+    .reasons-section .section-title {
+      color: var(--text-light);
+    }
+    .reasons-section .section-desc {
+      color: var(--text-light-muted);
+    }
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+    .reason-box {
+      border-top: 2px solid var(--bronze);
+      padding-top: 1.25rem;
+    }
+    .reason-box h3 {
+      color: var(--text-light);
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+    .reason-box p {
+      color: var(--text-light-muted);
+      font-size: 0.9rem;
+    }
+
+    /* -------------------------------------------------------------
+       7. CONTATTI E PREVENTIVO
+       ------------------------------------------------------------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3.5rem;
+    }
+    .contact-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .info-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--bronze-dark);
+    }
+    .info-value {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .info-placeholder-note {
+      font-size: 0.78rem;
+      color: #94A3B8;
+      font-style: italic;
+    }
+
+    .form-container {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      padding: 2.2rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-subtle);
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.92rem;
+      background-color: #FAFAFA;
+      color: var(--text-main);
+      transition: border-color 0.2s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--bronze);
+      background-color: #FFFFFF;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .checkbox-group input {
+      margin-top: 0.2rem;
+    }
+    .checkbox-group label {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .field-error {
+      color: #B91C1C;
+      font-size: 0.78rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    /* Avviso di invio trasparente */
+    .form-status-alert {
+      display: none;
+      padding: 1.25rem;
+      border-radius: var(--radius-sm);
+      margin-top: 1.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .form-status-alert.info {
+      background-color: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      color: #1E40AF;
+    }
+
+    /* -------------------------------------------------------------
+       8. PIEDE DI PAGINA
+       ------------------------------------------------------------- */
+    .site-footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light-muted);
+      padding: 4.5rem 0 2rem;
+      border-top: 1px solid var(--border-dark);
+      font-size: 0.88rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+    .footer-heading {
+      color: var(--text-light);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-links a {
+      color: var(--text-light-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: var(--bronze-light);
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border-dark);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* -------------------------------------------------------------
+       MODALI (PRIVACY & DEMO FULL VIEW)
+       ------------------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(23, 43, 54, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-card {
+      background-color: var(--bg-surface);
+      max-width: 650px;
+      width: 100%;
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-elevated);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.5rem;
+      display: none;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-elevated);
+      z-index: 89;
+    }
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .featured-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      .mobile-menu-trigger {
+        display: block;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================================
+       1. INTESTAZIONE E MENU
+       ============================================================= -->
+  <header class="site-header" role="banner">
+    <div class="container nav-wrapper">
+      <!-- Logo Tipografico -->
+      <a href="#home" class="brand-logo" aria-label="WEB TUSCIA Home">
+        <div class="logo-mark">T</div>
+        <div class="logo-text">
+          <span>WEB TUSCIA</span>
+          <small>DIGITAL STUDIO</small>
+        </div>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="desktop-nav" role="navigation" aria-label="Navigazione principale">
+        <a href="#home" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="#servizi" class="nav-link" data-i18n="nav_services">Servizi</a>
+        <a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">Portfolio</a>
+        <a href="#metodo" class="nav-link" data-i18n="nav_method">Metodo</a>
+        <a href="#chi-siamo" class="nav-link" data-i18n="nav_about">Chi siamo?</a>
+        <a href="#contatti" class="nav-link" data-i18n="nav_contact">Contatti</a>
+
+        <!-- Selettore Lingua Visibile IT / EN -->
+        <div class="lang-switcher" role="group" aria-label="Selettore Lingua">
+          <button type="button" class="lang-btn active" id="btn-lang-it" onclick="setLanguage('it')" aria-pressed="true">IT</button>
+          <button type="button" class="lang-btn" id="btn-lang-en" onclick="setLanguage('en')" aria-pressed="false">EN</button>
+        </div>
+
+        <a href="#contatti" class="btn btn-primary" data-i18n="nav_cta">Richiedi un preventivo</a>
+      </nav>
+
+      <!-- Pulsante Menu Mobile -->
+      <button class="mobile-menu-trigger" id="mobile-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Apri menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Drawer Mobile -->
+    <div class="mobile-drawer" id="mobile-nav" role="navigation" aria-label="Menu Mobile">
+      <a href="#home" class="nav-link" onclick="closeMobileMenu()" data-i18n="nav_home">Home</a>
+      <a href="#servizi" class="nav-link" onclick="closeMobileMenu()" data-i18n="nav_services">Servizi</a>
+      <a href="#portfolio" class="nav-link" onclick="closeMobileMenu()" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="#metodo" class="nav-link" onclick="closeMobileMenu()" data-i18n="nav_method">Metodo</a>
+      <a href="#chi-siamo" class="nav-link" onclick="closeMobileMenu()" data-i18n="nav_about">Chi siamo?</a>
+      <a href="#contatti" class="nav-link" onclick="closeMobileMenu()" data-i18n="nav_contact">Contatti</a>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.5rem; border-top: 1px solid var(--border-light);">
+        <span style="font-size: 0.85rem; font-weight: 600;" data-i18n="lang_label">Lingua / Language</span>
+        <div class="lang-switcher">
+          <button type="button" class="lang-btn active" id="btn-lang-it-m" onclick="setLanguage('it')">IT</button>
+          <button type="button" class="lang-btn" id="btn-lang-en-m" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
+
+      <a href="#contatti" class="btn btn-primary" onclick="closeMobileMenu()" data-i18n="nav_cta">Richiedi un preventivo</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- =============================================================
+         2. SEZIONE INIZIALE (HERO)
+         ============================================================= -->
+    <section id="home" class="hero-section">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge-tag" data-i18n="hero_badge">Siti Web per il Territorio della Tuscia</span>
+          <h1 class="hero-title" data-i18n="hero_title">
+            Presenza digitale curata per <span>attività locali</span> che guardano avanti.
+          </h1>
+          <p class="hero-lead" data-i18n="hero_lead">
+            WEB TUSCIA crea siti web moderni, veloci e su misura per artigiani, botteghe, ristoranti e professionisti. Progettati specificamente per farsi trovare e consultare senza sforzo su smartphone.
+          </p>
+          <div class="hero-actions">
+            <a href="#contatti" class="btn btn-primary" data-i18n="hero_btn_contact">Parla con noi del tuo progetto</a>
+            <a href="#portfolio" class="btn btn-secondary" data-i18n="hero_btn_demo">Guarda la Demo Ristorante</a>
+          </div>
+          <div class="hero-guarantees">
+            <span data-i18n="hero_point_1">✓ Design Mobile-First</span>
+            <span data-i18n="hero_point_2">✓ Nessun costo nascosto</span>
+            <span data-i18n="hero_point_3">✓ Codice pulito e veloce</span>
+          </div>
+        </div>
+
+        <!-- Card visiva di presentazione con elementi di design puliti -->
+        <div class="hero-card-preview" aria-hidden="true">
+          <div class="hero-card-header">
+            <div class="hero-card-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span style="font-family: monospace; font-size: 0.75rem;">webtuscia.it / studio</span>
+          </div>
+          <div style="background-color: var(--bg-main); padding: 1.5rem; border-radius: 4px; border: 1px solid var(--border-light);">
+            <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bronze-dark); font-weight: 700; margin-bottom: 0.3rem;" data-i18n="hero_card_sub">Filosofia Operativa</p>
+            <h4 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.5rem;" data-i18n="hero_card_title">Semplicità, precisione, identità.</h4>
+            <p style="font-size: 0.85rem; margin-bottom: 1rem;" data-i18n="hero_card_desc">
+              Non usiamo modelli preconfezionati generici. Ogni sito riflette il carattere autentico dell'attività commerciale, con testi chiari e percorsi immediati verso telefono, WhatsApp e indicazioni stradali.
+            </p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <span style="background: #FFFFFF; border: 1px solid var(--border-light); padding: 3px 8px; border-radius: 2px; font-size: 0.72rem; font-weight: 600;">HTML5 &amp; CSS</span>
+              <span style="background: #FFFFFF; border: 1px solid var(--border-light); padding: 3px 8px; border-radius: 2px; font-size: 0.72rem; font-weight: 600;">SEO Locale</span>
+              <span style="background: #FFFFFF; border: 1px solid var(--border-light); padding: 3px 8px; border-radius: 2px; font-size: 0.72rem; font-weight: 600;">Bilingue IT / EN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         3. SERVIZI
+         ============================================================= -->
+    <section id="servizi">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag" data-i18n="services_badge">Cosa Realizziamo</span>
+          <h2 class="section-title" data-i18n="services_title">Soluzioni concrete calibrate sulle tue esigenze</h2>
+          <p class="section-desc" data-i18n="services_desc">
+            Sviluppiamo strumenti di comunicazione online pensati per durare nel tempo, facili da consultare e privi di complessità inutili.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- 1. Siti Vetrina -->
+          <article class="service-card">
+            <div class="service-icon">✦</div>
+            <h3 data-i18n="srv_1_title">Siti Vetrina Monopagina</h3>
+            <p data-i18n="srv_1_desc">Ideali per farsi trovare subito con orari, indirizzo, elenco servizi e contatto diretto telefonico o WhatsApp in un'unica pagina scorrevole.</p>
+          </article>
+
+          <!-- 2. Multipagina -->
+          <article class="service-card">
+            <div class="service-icon">❖</div>
+            <h3 data-i18n="srv_2_title">Siti Web Multipagina</h3>
+            <p data-i18n="srv_2_desc">Architetture dedicate a chi ha una proposta articolata: agriturismi, officine, studi professionali o aziende vinicole locali.</p>
+          </article>
+
+          <!-- 3. Restyling -->
+          <article class="service-card">
+            <div class="service-icon">↻</div>
+            <h3 data-i18n="srv_3_title">Restyling di Siti Esistenti</h3>
+            <p data-i18n="srv_3_desc">Rinnovamento grafico, riscrittura dei testi e ottimizzazione per rendere moderno e veloce un sito ormai obsoleto.</p>
+          </article>
+
+          <!-- 4. Ottimizzazione Mobile -->
+          <article class="service-card">
+            <div class="service-icon">✆</div>
+            <h3 data-i18n="srv_4_title">Ottimizzazione Smartphone</h3>
+            <p data-i18n="srv_4_desc">Oltre il 70% dei clienti locali naviga da telefono. Progettiamo tasti rapidi per chiamata, navigatore GPS e messaggistica istantanea.</p>
+          </article>
+
+          <!-- 5. SEO di Base On-Page -->
+          <article class="service-card">
+            <div class="service-icon">◎</div>
+            <h3 data-i18n="srv_5_title">SEO di Base sulla Pagina</h3>
+            <p data-i18n="srv_5_desc">Impostazione corretta di titoli, testi, meta-tag e scheda per agevolare l'indicizzazione organica nei motori di ricerca per la tua area geografica.</p>
+          </article>
+
+          <!-- 6. Manutenzione e Aggiornamento -->
+          <article class="service-card">
+            <div class="service-icon">⚙</div>
+            <h3 data-i18n="srv_6_title">Supporto e Manutenzione</h3>
+            <p data-i18n="srv_6_desc">Aggiornamento di orari, listini stagionali, recapiti e foto senza che tu debba preoccuparti di gestire pannelli tecnici complessi.</p>
+          </article>
+        </div>
+
+        <!-- Nota di trasparenza sui costi e funzionalità -->
+        <div class="service-note-box">
+          <strong data-i18n="srv_disclaimer_title">Trasparenza contrattuale:</strong>
+          <span data-i18n="srv_disclaimer_text">
+            Il prezzo e le funzionalità incluse dipendono dal piano concordato formalmente nel preventivo. Non promettiamo backend complessi o vendite miracolose: concordiamo sempre con anticipo ogni singolo dettaglio tecnico ed economico.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         4. PORTFOLIO & PROGETTO DIMOSTRATIVO RISTORANTE
+         ============================================================= -->
+    <section id="portfolio" style="background-color: rgba(23, 43, 54, 0.02); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag" data-i18n="portfolio_badge">Lavori e Progetti Dimostrativi</span>
+          <h2 class="section-title" data-i18n="portfolio_title">Esempi pratici di cosa possiamo costruire per te</h2>
+          <p class="section-desc" data-i18n="portfolio_desc">
+            Siamo una realtà nuova. Non usiamo recensioni finte né millantiamo clienti inesistenti. Ti mostriamo invece con trasparenza la qualità del codice e del design attraverso un progetto dimostrativo interattivo.
+          </p>
+        </div>
+
+        <!-- Progetto in Evidenza: DEMO Ristorante -->
+        <div class="portfolio-featured">
+          <div class="demo-banner-strip">
+            <div>
+              <span class="demo-banner-badge" data-i18n="demo_badge_label">PROGETTO DIMOSTRATIVO</span>
+              <span style="margin-left: 0.5rem;" data-i18n="demo_badge_note">Attività simulata per dimostrazione tecnica UX/UI</span>
+            </div>
+            <span style="font-size: 0.75rem; opacity: 0.8;" data-i18n="demo_badge_tech">Tecnologia: HTML5 semantico / CSS / WhatsApp Direct</span>
+          </div>
+
+          <div class="featured-content">
+            <div>
+              <span class="badge-tag" style="background-color: rgba(23, 43, 54, 0.08); color: var(--text-main);" data-i18n="demo_sector">Ristorazione &amp; Ospitalità Locale</span>
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Osteria della Tuscia</h3>
+              <p style="margin-bottom: 1.25rem;" data-i18n="demo_text_explain">
+                Questo mockup interattivo simula l'esperienza completa di un cliente che cerca un tavolo tipico nel viterbese: consultazione immediata dei piatti tipici con prezzi chiari, indicazioni stradali e prenotazione via messaggio con testo precompilato.
+              </p>
+              
+              <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                <li data-i18n="demo_feat_1">✓ <strong>Menu Digitale Chiaro:</strong> leggibile al volo da telefono senza dover scaricare pesanti file PDF.</li>
+                <li data-i18n="demo_feat_2">✓ <strong>Richiesta Tavolo WhatsApp:</strong> invia data, ora e coperti con un clic.</li>
+                <li data-i18n="demo_feat_3">✓ <strong>Orari e Posizione Chiarissimi:</strong> riduce le telefonate di routine.</li>
+              </ul>
+
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <button type="button" class="btn btn-dark" onclick="simulateDemoNotice()" data-i18n="demo_cta_view">Esamina Dettagli Demo</button>
+                <a href="#contatti" class="btn btn-secondary" data-i18n="demo_cta_quote">Voglio un sito simile per il mio locale</a>
+              </div>
+            </div>
+
+            <!-- Interfaccia dimostrativa interattiva del locale fittizio -->
+            <div class="restaurant-mockup-wrapper">
+              <div class="mockup-header">
+                <div>
+                  <div class="mockup-brand">Osteria della Tuscia</div>
+                  <small style="color: #94A3B8; font-size: 0.72rem;" data-i18n="mockup_sub">Cucina tradizionale a Viterbo — Progetto fittizio</small>
+                </div>
+                <div class="mockup-nav">
+                  <span style="color: #E2D3B3;">● Menu</span>
+                  <span>● Dove siamo</span>
+                </div>
+              </div>
+
+              <!-- Menu simulato -->
+              <div style="margin-bottom: 1rem;">
+                <p style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #E2D3B3; margin-bottom: 0.5rem; font-weight: 700;" data-i18n="mockup_menu_title">I Nostri Primi Piatti di Stagione</p>
+                
+                <div class="mockup-dish">
+                  <div>
+                    <span class="dish-title" data-i18n="dish_1_name">Lombrichelli alla Viterbese</span>
+                    <span class="dish-desc" data-i18n="dish_1_desc">Pasta fresca fatta in casa, ragù tipico con funghi porcini e finocchietto selvatico</span>
+                  </div>
+                  <span class="dish-price">€ 12,00</span>
+                </div>
+
+                <div class="mockup-dish">
+                  <div>
+                    <span class="dish-title" data-i18n="dish_2_name">Acquacotta Tradizionale con Cicoria</span>
+                    <span class="dish-desc" data-i18n="dish_2_desc">Pane casereccio raffermo, erbe di campo della Tuscia, uovo in camicia e pecorino</span>
+                  </div>
+                  <span class="dish-price">€ 11,00</span>
+                </div>
+              </div>
+
+              <!-- Orari e Contatti Segnaposto -->
+              <div style="background-color: rgba(255,255,255,0.05); padding: 0.8rem; border-radius: 4px; font-size: 0.78rem; margin-bottom: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                  <strong data-i18n="mockup_hours_label">Orari di Apertura:</strong>
+                  <span data-i18n="mockup_hours_val">Mar - Dom: 12:30 - 15:00 / 19:30 - 23:00</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <strong data-i18n="mockup_location_label">Indirizzo dimostrativo:</strong>
+                  <span data-i18n="mockup_location_val">Via San Pellegrino 00, Viterbo (VT)</span>
+                </div>
+              </div>
+
+              <!-- Simulatore Prenotazione WhatsApp con messaggio generato -->
+              <div class="mockup-cta-row">
+                <button type="button" class="mockup-whatsapp-btn" onclick="triggerDemoWhatsApp()">
+                  <span>💬</span> <span data-i18n="mockup_wa_btn">Test Richiesta Tavolo WhatsApp</span>
+                </button>
+                <span style="font-size: 0.7rem; color: #94A3B8; align-self: center;" data-i18n="mockup_wa_note">(Apre una bozza senza inviare dati reali)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Altri Progetti del Portfolio (Trasparenza: In Preparazione) -->
+        <div class="portfolio-grid-upcoming">
+          <div class="upcoming-card">
+            <span class="upcoming-tag" data-i18n="upc_status">In preparazione</span>
+            <h3 data-i18n="upc_1_title">Agriturismo &amp; Degustazioni Olio EVO</h3>
+            <p style="font-size: 0.85rem;" data-i18n="upc_1_desc">Sito bilingue pensato per strutture ricettive del comprensorio con modulo per richieste di pernottamento e tour in cantina.</p>
+          </div>
+          <div class="upcoming-card">
+            <span class="upcoming-tag" data-i18n="upc_status">In preparazione</span>
+            <h3 data-i18n="upc_2_title">Bottega Artigiana del Legno e Ceramica</h3>
+            <p style="font-size: 0.85rem;" data-i18n="upc_2_desc">Catalogo fotografico curato con collegamenti per richieste su misura e contatti diretti di laboratorio.</p>
+          </div>
+          <div class="upcoming-card">
+            <span class="upcoming-tag" data-i18n="upc_status">In preparazione</span>
+            <h3 data-i18n="upc_3_title">Studio Tecnico &amp; Consulenza Agronomica</h3>
+            <p style="font-size: 0.85rem;" data-i18n="upc_3_desc">Pagine sobrie, professionali ed eleganti incentrate sulla chiarezza dei servizi e sulla credibilità professionale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         5. METODO DI LAVORO
+         ============================================================= -->
+    <section id="metodo">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag" data-i18n="method_badge">Come Lavoriamo</span>
+          <h2 class="section-title" data-i18n="method_title">Un percorso chiaro, passo dopo passo</h2>
+          <p class="section-desc" data-i18n="method_desc">
+            Nessuna sorpresa: sai esattamente cosa viene fatto, in che tempi ragionevoli e come vengono recepite le tue osservazioni.
+          </p>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <h3 data-i18n="step_1_title">Ascolto e Obiettivi</h3>
+            <p data-i18n="step_1_desc">Ci confrontiamo telefonicamente o di persona per comprendere il tipo di clientela a cui ti rivolgi e le informazioni essenziali da pubblicare.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <h3 data-i18n="step_2_title">Proposta e Layout</h3>
+            <p data-i18n="step_2_desc">Definiamo l'alberatura delle pagine, i colori guida e la disposizione visiva dei contenuti prima di passare al codice.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <h3 data-i18n="step_3_title">Sviluppo Frontend</h3>
+            <p data-i18n="step_3_desc">Scriviamo codice leggero e pulito, ottimizzato per garantire caricamenti rapidi anche su connessioni mobili lente.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">04</div>
+            <h3 data-i18n="step_4_title">Verifica su Smartphone</h3>
+            <p data-i18n="step_4_desc">Testiamo il sito su schermi di diverse dimensioni per accertarci che la lettura sia comoda e i pulsanti facilmente toccabili.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">05</div>
+            <h3 data-i18n="step_5_title">Revisione Insieme</h3>
+            <p data-i18n="step_5_desc">Esaminiamo insieme il risultato per correggere testi, sostituire immagini concordate e perfezionare gli ultimi dettagli.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">06</div>
+            <h3 data-i18n="step_6_title">Pubblicazione &amp; Continuità</h3>
+            <p data-i18n="step_6_desc">Configurazione del dominio, rilascio online e piano di aggiornamento periodico per mantenere il sito sempre affidabile.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         6. PERCHÉ SCEGLIERE WEB TUSCIA
+         ============================================================= -->
+    <section id="chi-siamo" class="reasons-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge-tag" style="background-color: var(--bronze); color: #fff;" data-i18n="about_badge">Chi Siamo &amp; Principi</span>
+          <h2 class="section-title" data-i18n="about_title">Vicini alle realtà locali, attenti alla concretezza</h2>
+          <p class="section-desc" data-i18n="about_desc">
+            Siamo un piccolo gruppo operativo con base prevista nella Tuscia laziale. Non vendiamo contratti complessi: realizziamo siti che servono davvero a chi lavora sul territorio.
+          </p>
+        </div>
+
+        <div class="reasons-grid">
+          <div class="reason-box">
+            <h3 data-i18n="why_1_title">Interlocutori Diretti</h3>
+            <p data-i18n="why_1_desc">Parli direttamente con chi scrive il codice e progetta le pagine. Nessun call center o rimpallo tra intermediari.</p>
+          </div>
+
+          <div class="reason-box">
+            <h3 data-i18n="why_2_title">Attenzione al Dettaglio</h3>
+            <p data-i18n="why_2_desc">Curiamo i contrasti, la leggibilità dei testi e la fluidità delle interazioni per restituire un'immagine solida e professionale.</p>
+          </div>
+
+          <div class="reason-box">
+            <h3 data-i18n="why_3_title">Design Prima per Mobile</h3>
+            <p data-i18n="why_3_desc">Non adattiamo a posteriori il sito desktop. Progettiamo pensando innanzitutto all'utente in movimento che cerca un'informazione immediata.</p>
+          </div>
+
+          <div class="reason-box">
+            <h3 data-i18n="why_4_title">Preventivi Trasparenza Zero</h3>
+            <p data-i18n="why_4_desc">Ogni voce di costo è spiegata in modo chiaro prima di iniziare. Nessuna sorpresa o rinnovo nascosto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================
+         7. CONTATTI E RICHIESTA DI PREVENTIVO
+         ============================================================= -->
+    <section id="contatti">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info-panel">
+            <div>
+              <span class="badge-tag" data-i18n="contact_badge">Contattaci</span>
+              <h2 class="section-title" data-i18n="contact_title">Iniziamo a parlare del tuo nuovo sito</h2>
+              <p data-i18n="contact_desc">
+                Compila il modulo a fianco descrivendoci la tua attività. Ti risponderemo con una prima valutazione di fattibilità senza alcun impegno.
+              </p>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label" data-i18n="contact_loc_label">Area Operativa</span>
+              <span class="info-value">Tuscia / Provincia di Viterbo (Lazio)</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label" data-i18n="contact_email_label">Email Diretta</span>
+              <!-- Mailto funzionante sul placeholder ufficiale -->
+              <a href="mailto:info@webtuscia.placeholder.it" class="info-value">info@webtuscia.placeholder.it</a>
+              <span class="info-placeholder-note" data-i18n="contact_email_note">[Indirizzo provvisorio in attesa di configurazione dominio]</span>
+            </div>
+
+            <div class="info-item">
+              <span class="info-label" data-i18n="contact_wa_label">Canale Rapido WhatsApp</span>
+              <a href="javascript:void(0)" onclick="alertPlaceholderContact()" class="info-value" style="color: #059669; font-weight: 600;">
+                💬 Contatto WhatsApp Diretto
+              </a>
+              <span class="info-placeholder-note" data-i18n="contact_wa_note">[Numero provvisorio: da attivare pre-lancio commerciale]</span>
+            </div>
+
+            <div style="background-color: var(--bg-surface); padding: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.85rem;">
+              <strong data-i18n="contact_notice_title">Funnel di Contatto Diretto:</strong>
+              <p style="margin-top: 0.35rem;" data-i18n="contact_notice_text">
+                Raccogliamo solo le informazioni essenziali per comprendere il tipo di progetto (vetrina, multipagina, restyling) ed elaborare un preventivo coerente.
+              </p>
+            </div>
+          </div>
+
+          <!-- Modulo di Richiesta Preventivo con Validazione e Mailto Fallback -->
+          <div class="form-container">
+            <h3 style="font-size: 1.35rem; margin-bottom: 1.25rem;" data-i18n="form_title">Richiesta di Informazioni o Preventivo</h3>
+            
+            <form id="quote-form" onsubmit="handleQuoteSubmit(event)" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-name" data-i18n="form_name_label">Nome e Cognome *</label>
+                  <input type="text" id="user-name" required placeholder="Es. Mario Rossi" />
+                  <span class="field-error" id="err-name" data-i18n="err_name">Inserisci il tuo nome.</span>
+                </div>
+                <div class="form-group">
+                  <label for="business-name" data-i18n="form_biz_label">Nome Attività / Azienda *</label>
+                  <input type="text" id="business-name" required placeholder="Es. Bottega Tuscia" />
+                  <span class="field-error" id="err-biz" data-i18n="err_biz">Inserisci il nome dell'attività.</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-email" data-i18n="form_email_label">Indirizzo Email *</label>
+                  <input type="email" id="user-email" required placeholder="nome@esempio.it" />
+                  <span class="field-error" id="err-email" data-i18n="err_email">Inserisci un'email valida.</span>
+                </div>
+                <div class="form-group">
+                  <label for="user-phone" data-i18n="form_phone_label">Telefono (facoltativo)</label>
+                  <input type="tel" id="user-phone" placeholder="Es. +39 333 0000000" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="project-type" data-i18n="form_type_label">Tipologia di Progetto Desiderato</label>
+                <select id="project-type">
+                  <option value="vetrina" data-i18n="opt_1">Sito Vetrina a Pagina Singola</option>
+                  <option value="multipagina" data-i18n="opt_2">Sito Web Multipagina Strutturato</option>
+                  <option value="restyling" data-i18n="opt_3">Restyling di Sito Già Esistente</option>
+                  <option value="ristorazione" data-i18n="opt_4">Sito per Ristorante / Menu &amp; Prenotazioni</option>
+                  <option value="altro" data-i18n="opt_5">Altro / Non ho ancora le idee chiare</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="project-desc" data-i18n="form_desc_label">Descrizione Breve del Progetto *</label>
+                <textarea id="project-desc" rows="4" required placeholder="Spiegaci brevemente di cosa ti occupi e di cosa hai bisogno..."></textarea>
+                <span class="field-error" id="err-desc" data-i18n="err_desc">Inserisci una breve descrizione.</span>
+              </div>
+
+              <div class="checkbox-group">
+                <input type="checkbox" id="privacy-consent" required />
+                <label for="privacy-consent">
+                  <span data-i18n="form_privacy_text">Dichiaro di aver preso visione dell'informativa e acconsento al trattamento dei dati per la formulazione del preventivo.</span> 
+                  <button type="button" onclick="openPrivacyModal()" style="background:none; border:none; color: var(--bronze-dark); text-decoration: underline; cursor: pointer; padding:0; font-size: inherit;" data-i18n="form_privacy_link">Leggi informativa</button>.
+                </label>
+              </div>
+              <span class="field-error" id="err-privacy" style="margin-top:-1rem; margin-bottom:1rem;" data-i18n="err_privacy">È necessario esprimere il consenso per inviare la richiesta.</span>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="form_btn_submit">
+                Prepara e Invia Richiesta di Preventivo
+              </button>
+            </form>
+
+            <!-- Box informativo trasparente sullo stato di configurazione del backend -->
+            <div id="form-feedback" class="form-status-alert info" role="status" aria-live="polite">
+              <strong data-i18n="form_feedback_title">Bozza di Richiesta Generata con Successo</strong>
+              <p style="margin-top: 0.4rem;" data-i18n="form_feedback_desc">
+                In questo prototipo frontend il modulo genera direttamente un'email formattata con tutti i tuoi parametri tramite il tuo client di posta predefinito (aprendo <code>mailto:</code>), garantendo la massima trasparenza senza invio fantasma a server non configurati.
+              </p>
+              <div style="margin-top: 0.8rem;">
+                <a id="mailto-fallback-link" href="#" class="btn btn-dark" style="font-size: 0.8rem; padding: 0.5rem 1rem;" data-i18n="form_feedback_btn">Apri il tuo Client Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =============================================================
+       8. PIEDE DI PAGINA (FOOTER)
+       ============================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 1rem; color: #FFFFFF;">
+            <div class="logo-mark" style="border-color: var(--bronze-light); color: #fff;">T</div>
+            <div class="logo-text">
+              <span>WEB TUSCIA</span>
+              <small style="color: var(--bronze-light);">DIGITAL STUDIO</small>
+            </div>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-light-muted); margin-bottom: 1rem;" data-i18n="footer_bio">
+            Iniziativa professionale per la progettazione di siti web moderni, funzionali e trasparenti al servizio delle attività locali della Tuscia e del Lazio.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="footer_nav_title">Navigazione</h4>
+          <ul class="footer-links">
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#servizi" data-i18n="nav_services">Servizi</a></li>
+            <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
+            <li><a href="#metodo" data-i18n="nav_method">Metodo</a></li>
+            <li><a href="#chi-siamo" data-i18n="nav_about">Chi siamo?</a></li>
+            <li><a href="#contatti" data-i18n="nav_contact">Contatti</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="footer_legal_title">Note Legali &amp; Trasparenza</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openPrivacyModal()" data-i18n="footer_privacy">Informativa Privacy (Placeholder)</a></li>
+            <li><a href="javascript:void(0)" onclick="openCookieModal()" data-i18n="footer_cookie">Cookie Policy</a></li>
+            <li><span style="font-size: 0.75rem; color: #94A3B8;">P.IVA: [DA INSERIRE PRE-COMMERCIALIZZAZIONE]</span></li>
+            <li><span style="font-size: 0.75rem; color: #94A3B8;">Sede Operativa: Area Tuscia (VT), Italia</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading" data-i18n="footer_status_title">Stato del Sito</h4>
+          <p style="font-size: 0.8rem; color: var(--text-light-muted); margin-bottom: 0.5rem;" data-i18n="footer_status_text">
+            Versione iniziale del sito ufficiale e portfolio dimostrativo. Nessun tracker di profilazione attivo.
+          </p>
+          <div style="font-size: 0.75rem; background: rgba(255,255,255,0.06); padding: 0.6rem; border-radius: 4px; border: 1px solid var(--border-dark);">
+            <span style="color: var(--bronze-light);">✓ Zero cookie di terze parti</span><br />
+            <span style="color: var(--bronze-light);">✓ Codice pronto per esportazione</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="current-year"></span> WEB TUSCIA. <span data-i18n="footer_rights">Tutti i diritti riservati. Realizzazione trasparente senza pretese ingannevoli.</span>
+        </div>
+        <div>
+          <span style="color: var(--text-light-muted); font-size: 0.75rem;" data-i18n="footer_compliance">
+            Configurazione finale da completare con i dati fiscali dell'intestatario prima del lancio.
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =============================================================
+       MODALE INFORMATIVA PRIVACY & COOKIE
+       ============================================================= -->
+  <div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closePrivacyModal()" aria-label="Chiudi finestra">&times;</button>
+      <span class="badge-tag" data-i18n="modal_badge">Segnaposto Trasparente</span>
+      <h3 id="privacy-modal-title" style="margin-bottom: 1rem;" data-i18n="modal_title">Informativa Privacy e Trattamento Dati</h3>
+      <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;" data-i18n="modal_body">
+        <p style="margin-bottom: 0.75rem;">
+          <strong>Titolare del trattamento:</strong> In attesa di registrazione formale (WEB TUSCIA, Area Viterbo / Tuscia, Lazio).
+        </p>
+        <p style="margin-bottom: 0.75rem;">
+          <strong>Finalità dei dati:</strong> I dati inseriti nel modulo di contatto (nome, ragione sociale, email, telefono) vengono utilizzati esclusivamente per dare riscontro alle richieste di preventivo e non vengono ceduti a terzi né utilizzati per newsletter senza esplicito consenso.
+        </p>
+        <p style="margin-bottom: 0.75rem;">
+          <strong>Cookie e tracciamento:</strong> Questo sito web statico non installa cookie di profilazione, cookie pubblicitari o strumenti di tracciamento di terze parti invasivi.
+        </p>
+        <p style="font-style: italic; font-size: 0.8rem; border-top: 1px solid var(--border-light); padding-top: 0.5rem;">
+          Avviso per il team: questo testo costituisce un modello descrittivo iniziale. Prima della pubblicazione per clienti terzi, è necessario consultare un professionista o generare un'informativa conforme al GDPR correlata ai recapiti effettivi dell'intestatario.
+        </p>
+      </div>
+      <div style="margin-top: 1.5rem; text-align: right;">
+        <button type="button" class="btn btn-secondary" onclick="closePrivacyModal()" data-i18n="modal_close_btn">Ho capito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================================
+       LOGICA JAVASCRIPT BILINGUE, VALIDAZIONE E FUNZIONALITÀ
+       ============================================================= -->
+  <script>
+    // -------------------------------------------------------------
+    // DIZIONARIO COMPLETO BILINGUE (IT / EN)
+    // -------------------------------------------------------------
+    const translations = {
+      it: {
+        meta_title: "WEB TUSCIA — Siti Web Moderni per Attività Locali",
+        meta_desc: "Progettiamo siti web moderni, veloci e curati per artigiani, ristoratori, professionisti e piccole imprese nella Tuscia e nel Lazio.",
+        nav_home: "Home",
+        nav_services: "Servizi",
+        nav_portfolio: "Portfolio",
+        nav_method: "Metodo",
+        nav_about: "Chi siamo?",
+        nav_contact: "Contatti",
+        nav_cta: "Richiedi un preventivo",
+        lang_label: "Lingua",
+        hero_badge: "Siti Web per il Territorio della Tuscia",
+        hero_title: "Presenza digitale curata per <span>attività locali</span> che guardano avanti.",
+        hero_lead: "WEB TUSCIA crea siti web moderni, veloci e su misura per artigiani, botteghe, ristoranti e professionisti. Progettati specificamente per farsi trovare e consultare senza sforzo su smartphone.",
+        hero_btn_contact: "Parla con noi del tuo progetto",
+        hero_btn_demo: "Guarda la Demo Ristorante",
+        hero_point_1: "✓ Design Mobile-First",
+        hero_point_2: "✓ Nessun costo nascosto",
+        hero_point_3: "✓ Codice pulito e veloce",
+        hero_card_sub: "Filosofia Operativa",
+        hero_card_title: "Semplicità, precisione, identità.",
+        hero_card_desc: "Non usiamo modelli preconfezionati generici. Ogni sito riflette il carattere autentico dell'attività commerciale, con testi chiari e percorsi immediati verso telefono, WhatsApp e indicazioni stradali.",
+        services_badge: "Cosa Realizziamo",
+        services_title: "Soluzioni concrete calibrate sulle tue esigenze",
+        services_desc: "Sviluppiamo strumenti di comunicazione online pensati per durare nel tempo, facili da consultare e privi di complessità inutili.",
+        srv_1_title: "Siti Vetrina Monopagina",
+        srv_1_desc: "Ideali per farsi trovare subito con orari, indirizzo, elenco servizi e contatto diretto telefonico o WhatsApp in un'unica pagina scorrevole.",
+        srv_2_title: "Siti Web Multipagina",
+        srv_2_desc: "Architetture dedicate a chi ha una proposta articolata: agriturismi, officine, studi professionali o aziende vinicole locali.",
+        srv_3_title: "Restyling di Siti Esistenti",
+        srv_3_desc: "Rinnovamento grafico, riscrittura dei testi e ottimizzazione per rendere moderno e veloce un sito ormai obsoleto.",
+        srv_4_title: "Ottimizzazione Smartphone",
+        srv_4_desc: "Oltre il 70% dei clienti locali naviga da telefono. Progettiamo tasti rapidi per chiamata, navigatore GPS e messaggistica istantanea.",
+        srv_5_title: "SEO di Base sulla Pagina",
+        srv_5_desc: "Impostazione corretta di titoli, testi, meta-tag e scheda per agevolare l'indicizzazione organica nei motori di ricerca per la tua area geografica.",
+        srv_6_title: "Supporto e Manutenzione",
+        srv_6_desc: "Aggiornamento di orari, listini stagionali, recapiti e foto senza che tu debba preoccuparti di gestire pannelli tecnici complessi.",
+        srv_disclaimer_title: "Trasparenza contrattuale:",
+        srv_disclaimer_text: "Il prezzo e le funzionalità incluse dipendono dal piano concordato formalmente nel preventivo. Non promettiamo backend complessi o vendite miracolose: concordiamo sempre con anticipo ogni singolo dettaglio tecnico ed economico.",
+        portfolio_badge: "Lavori e Progetti Dimostrativi",
+        portfolio_title: "Esempi pratici di cosa possiamo costruire per te",
+        portfolio_desc: "Siamo una realtà nuova. Non usiamo recensioni finte né millantiamo clienti inesistenti. Ti mostriamo invece con trasparenza la qualità del codice e del design attraverso un progetto dimostrativo interattivo.",
+        demo_badge_label: "PROGETTO DIMOSTRATIVO",
+        demo_badge_note: "Attività simulata per dimostrazione tecnica UX/UI",
+        demo_badge_tech: "Tecnologia: HTML5 semantico / CSS / WhatsApp Direct",
+        demo_sector: "Ristorazione & Ospitalità Locale",
+        demo_text_explain: "Questo mockup interattivo simula l'esperienza completa di un cliente che cerca un tavolo tipico nel viterbese: consultazione immediata dei piatti tipici con prezzi chiari, indicazioni stradali e prenotazione via messaggio con testo precompilato.",
+        demo_feat_1: "✓ Menu Digitale Chiaro: leggibile al volo da telefono senza dover scaricare pesanti file PDF.",
+        demo_feat_2: "✓ Richiesta Tavolo WhatsApp: invia data, ora e coperti con un clic.",
+        demo_feat_3: "✓ Orari e Posizione Chiarissimi: riduce le telefonate di routine.",
+        demo_cta_view: "Esamina Dettagli Demo",
+        demo_cta_quote: "Voglio un sito simile per il mio locale",
+        mockup_sub: "Cucina tradizionale a Viterbo — Progetto fittizio",
+        mockup_menu_title: "I Nostri Primi Piatti di Stagione",
+        dish_1_name: "Lombrichelli alla Viterbese",
+        dish_1_desc: "Pasta fresca fatta in casa, ragù tipico con funghi porcini e finocchietto selvatico",
+        dish_2_name: "Acquacotta Tradizionale con Cicoria",
+        dish_2_desc: "Pane casereccio raffermo, erbe di campo della Tuscia, uovo in camicia e pecorino",
+        mockup_hours_label: "Orari di Apertura:",
+        mockup_hours_val: "Mar - Dom: 12:30 - 15:00 / 19:30 - 23:00",
+        mockup_location_label: "Indirizzo dimostrativo:",
+        mockup_location_val: "Via San Pellegrino 00, Viterbo (VT)",
+        mockup_wa_btn: "Test Richiesta Tavolo WhatsApp",
+        mockup_wa_note: "(Apre una bozza senza inviare dati reali)",
+        upc_status: "In preparazione",
+        upc_1_title: "Agriturismo & Degustazioni Olio EVO",
+        upc_1_desc: "Sito bilingue pensato per strutture ricettive del comprensorio con modulo per richieste di pernottamento e tour in cantina.",
+        upc_2_title: "Bottega Artigiana del Legno e Ceramica",
+        upc_2_desc: "Catalogo fotografico curato con collegamenti per richieste su misura e contatti diretti di laboratorio.",
+        upc_3_title: "Studio Tecnico & Consulenza Agronomica",
+        upc_3_desc: "Pagine sobrie, professionali ed eleganti incentrate sulla chiarezza dei servizi e sulla credibilità professionale.",
+        method_badge: "Come Lavoriamo",
+        method_title: "Un percorso chiaro, passo dopo passo",
+        method_desc: "Nessuna sorpresa: sai esattamente cosa viene fatto, in che tempi ragionevoli e come vengono recepite le tue osservazioni.",
+        step_1_title: "Ascolto e Obiettivi",
+        step_1_desc: "Ci confrontiamo telefonicamente o di persona per comprendere il tipo di clientela a cui ti rivolgi e le informazioni essenziali da pubblicare.",
+        step_2_title: "Proposta e Layout",
+        step_2_desc: "Definiamo l'alberatura delle pagine, i colori guida e la disposizione visiva dei contenuti prima di passare al codice.",
+        step_3_title: "Sviluppo Frontend",
+        step_3_desc: "Scriviamo codice leggero e pulito, ottimizzato per garantire caricamenti rapidi anche su connessioni mobili lente.",
+        step_4_title: "Verifica su Smartphone",
+        step_4_desc: "Testiamo il sito su schermi di diverse dimensioni per accertarci che la lettura sia comoda e i pulsanti facilmente toccabili.",
+        step_5_title: "Revisione Insieme",
+        step_5_desc: "Esaminiamo insieme il risultato per correggere testi, sostituire immagini concordate e perfezionare gli ultimi dettagli.",
+        step_6_title: "Pubblicazione & Continuità",
+        step_6_desc: "Configurazione del dominio, rilascio online e piano di aggiornamento periodico per mantenere il sito sempre affidabile.",
+        about_badge: "Chi Siamo & Principi",
+        about_title: "Vicini alle realtà locali, attenti alla concretezza",
+        about_desc: "Siamo un piccolo gruppo operativo con base prevista nella Tuscia laziale. Non vendiamo contratti complessi: realizziamo siti che servono davvero a chi lavora sul territorio.",
+        why_1_title: "Interlocutori Diretti",
+        why_1_desc: "Parli direttamente con chi scrive il codice e progetta le pagine. Nessun call center o rimpallo tra intermediari.",
+        why_2_title: "Attenzione al Dettaglio",
+        why_2_desc: "Curiamo i contrasti, la leggibilità dei testi e la fluidità delle interazioni per restituire un'immagine solida e professionale.",
+        why_3_title: "Design Prima per Mobile",
+        why_3_desc: "Non adattiamo a posteriori il sito desktop. Progettiamo pensando innanzitutto all'utente in movimento che cerca un'informazione immediata.",
+        why_4_title: "Preventivi Trasparenza Zero Sorprese",
+        why_4_desc: "Ogni voce di costo è spiegata in modo chiaro prima di iniziare. Nessuna sorpresa o rinnovo nascosto.",
+        contact_badge: "Contattaci",
+        contact_title: "Iniziamo a parlare del tuo nuovo sito",
+        contact_desc: "Compila il modulo a fianco descrivendoci la tua attività. Ti risponderemo con una prima valutazione di fattibilità senza alcun impegno.",
+        contact_loc_label: "Area Operativa",
+        contact_email_label: "Email Diretta",
+        contact_email_note: "[Indirizzo provvisorio in attesa di configurazione dominio]",
+        contact_wa_label: "Canale Rapido WhatsApp",
+        contact_wa_note: "[Numero provvisorio: da attivare pre-lancio commerciale]",
+        contact_notice_title: "Funnel di Contatto Diretto:",
+        contact_notice_text: "Raccogliamo solo le informazioni essenziali per comprendere il tipo di progetto (vetrina, multipagina, restyling) ed elaborare un preventivo coerente.",
+        form_title: "Richiesta di Informazioni o Preventivo",
+        form_name_label: "Nome e Cognome *",
+        form_biz_label: "Nome Attività / Azienda *",
+        form_email_label: "Indirizzo Email *",
+        form_phone_label: "Telefono (facoltativo)",
+        form_type_label: "Tipologia di Progetto Desiderato",
+        opt_1: "Sito Vetrina a Pagina Singola",
+        opt_2: "Sito Web Multipagina Strutturato",
+        opt_3: "Restyling di Sito Già Esistente",
+        opt_4: "Sito per Ristorante / Menu & Prenotazioni",
+        opt_5: "Altro / Non ho ancora le idee chiare",
+        form_desc_label: "Descrizione Breve del Progetto *",
+        form_privacy_text: "Dichiaro di aver preso visione dell'informativa e acconsento al trattamento dei dati per la formulazione del preventivo.",
+        form_privacy_link: "Leggi informativa",
+        form_btn_submit: "Prepara e Invia Richiesta di Preventivo",
+        err_name: "Inserisci il tuo nome e cognome.",
+        err_biz: "Inserisci il nome dell'attività commerciale.",
+        err_email: "Inserisci un indirizzo email valido.",
+        err_desc: "Inserisci una breve descrizione della tua richiesta.",
+        err_privacy: "È necessario esprimere il consenso per procedere.",
+        form_feedback_title: "Bozza di Richiesta Generata con Successo",
+        form_feedback_desc: "In questo prototipo frontend il modulo genera direttamente un'email formattata con tutti i tuoi parametri tramite il tuo client di posta predefinito (aprendo mailto:), garantendo la massima trasparenza senza invio fantasma a server non configurati.",
+        form_feedback_btn: "Apri il tuo Client Email",
+        footer_bio: "Iniziativa professionale per la progettazione di siti web moderni, funzionali e trasparenti al servizio delle attività locali della Tuscia e del Lazio.",
+        footer_nav_title: "Navigazione",
+        footer_legal_title: "Note Legali & Trasparenza",
+        footer_privacy: "Informativa Privacy (Placeholder)",
+        footer_cookie: "Cookie Policy",
+        footer_status_title: "Stato del Sito",
+        footer_status_text: "Versione iniziale del sito ufficiale e portfolio dimostrativo. Nessun tracker di profilazione attivo.",
+        footer_rights: "Tutti i diritti riservati. Realizzazione trasparente senza pretese ingannevoli.",
+        footer_compliance: "Configurazione finale da completare con i dati fiscali dell'intestatario prima del lancio.",
+        modal_badge: "Segnaposto Trasparente",
+        modal_title: "Informativa Privacy e Trattamento Dati",
+        modal_close_btn: "Ho capito"
+      },
+      en: {
+        meta_title: "WEB TUSCIA — Modern Websites for Local Businesses",
+        meta_desc: "We build modern, fast, and refined websites for artisans, restaurants, and small businesses in Tuscia and Lazio, Italy.",
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_portfolio: "Portfolio",
+        nav_method: "Method",
+        nav_about: "About Us",
+        nav_contact: "Contact",
+        nav_cta: "Request a Quote",
+        lang_label: "Language",
+        hero_badge: "Websites Crafted for the Tuscia Region",
+        hero_title: "Refined digital presence for <span>local businesses</span> looking ahead.",
+        hero_lead: "WEB TUSCIA creates tailored, fast, and modern websites for artisans, shops, restaurants, and independent professionals. Purpose-built to be easily discovered and browsed on mobile devices.",
+        hero_btn_contact: "Discuss your project with us",
+        hero_btn_demo: "View the Restaurant Demo",
+        hero_point_1: "✓ Mobile-First Architecture",
+        hero_point_2: "✓ No hidden fees",
+        hero_point_3: "✓ Clean and fast code",
+        hero_card_sub: "Operating Philosophy",
+        hero_card_title: "Simplicity, precision, identity.",
+        hero_card_desc: "We do not use generic cookie-cutter templates. Every website reflects the genuine character of the business, with clear messaging and direct paths to calls, WhatsApp, and location maps.",
+        services_badge: "Our Capabilities",
+        services_title: "Practical solutions tailored to your real goals",
+        services_desc: "We engineer online communication tools built to endure over time, easy to navigate, and free from unnecessary bloat.",
+        srv_1_title: "Single-Page Showcase Sites",
+        srv_1_desc: "Ideal for immediate visibility featuring working hours, address, services, and direct phone/WhatsApp contact on one seamless page.",
+        srv_2_title: "Multi-Page Websites",
+        srv_2_desc: "Structured architectures for businesses with broader offerings: farmhouses, workshops, professional practices, or local wineries.",
+        srv_3_title: "Website Restyling",
+        srv_3_desc: "Visual refresh, copy rewriting, and performance optimization to turn an outdated site into a modern, swift asset.",
+        srv_4_title: "Smartphone Optimization",
+        srv_4_desc: "Over 70% of local customers browse from mobile phones. We engineer quick-action buttons for calls, maps, and instant messaging.",
+        srv_5_title: "On-Page Foundational SEO",
+        srv_5_desc: "Accurate titles, clean semantic tags, and local profile readiness to help organic search visibility within your geographic area.",
+        srv_6_title: "Ongoing Maintenance & Updates",
+        srv_6_desc: "Updates to opening times, seasonal menus, contacts, and images without forcing you to deal with complex technical admin panels.",
+        srv_disclaimer_title: "Contractual Transparency:",
+        srv_disclaimer_text: "Final pricing and included features strictly reflect the scope agreed upon in the written quote. We never promise magical sales or complex backend infrastructure without prior approval.",
+        portfolio_badge: "Selected Work & Demos",
+        portfolio_title: "Tangible examples of what we can build for you",
+        portfolio_desc: "We are a newly established group. We do not invent fake client testimonials or claim fictitious accolades. Instead, we show our design and code quality through an interactive demonstration project.",
+        demo_badge_label: "DEMONSTRATION PROJECT",
+        demo_badge_note: "Simulated business for UX/UI technical demonstration",
+        demo_badge_tech: "Tech Stack: Semantic HTML5 / Pure CSS / WhatsApp Direct",
+        demo_sector: "Local Gastronomy & Hospitality",
+        demo_text_explain: "This interactive mockup replicates the end-to-end journey of a guest seeking local food in the Viterbo area: rapid menu review with visible prices, map location, and instant table inquiry with pre-filled message.",
+        demo_feat_1: "✓ Clear Digital Menu: readily readable on smartphones without forcing customers to download bulky PDF files.",
+        demo_feat_2: "✓ Instant WhatsApp Table Request: sends date, time, and guest count with a single click.",
+        demo_feat_3: "✓ Clear Hours & Location: drastically reduces unnecessary repetitive phone calls.",
+        demo_cta_view: "Review Demo Details",
+        demo_cta_quote: "I want a similar site for my venue",
+        mockup_sub: "Traditional dining in Viterbo — Fictitious Showcase",
+        mockup_menu_title: "Our Seasonal Main Courses",
+        dish_1_name: "Handmade Lombrichelli Pasta",
+        dish_1_desc: "Fresh home-rolled pasta with regional mushroom ragù and wild fennel seasoning",
+        dish_2_name: "Traditional Acquacotta with Wild Chicory",
+        dish_2_desc: "Rustic local sourdough, Tuscia field herbs, poached egg, and aged pecorino cheese",
+        mockup_hours_label: "Opening Hours:",
+        mockup_hours_val: "Tue - Sun: 12:30 - 15:00 / 19:30 - 23:00",
+        mockup_location_label: "Demo Location:",
+        mockup_location_val: "Via San Pellegrino 00, Viterbo (VT), Italy",
+        mockup_wa_btn: "Test WhatsApp Table Request",
+        mockup_wa_note: "(Opens a pre-filled draft without transmitting data)",
+        upc_status: "In Preparation",
+        upc_1_title: "Agriturismo & EVO Olive Oil Tastings",
+        upc_1_desc: "Bilingual website crafted for countryside hospitality with stay inquiry forms and cellar tour bookings.",
+        upc_2_title: "Artisan Woodworking & Ceramic Studio",
+        upc_2_desc: "Polished photo portfolio with bespoke request forms and direct workshop inquiries.",
+        upc_3_title: "Agronomy Consulting & Technical Studio",
+        upc_3_desc: "Clean, authoritative, and elegant layout centered around service clarity and professional credibility.",
+        method_badge: "Our Process",
+        method_title: "A clear, predictable roadmap",
+        method_desc: "No surprises: you always know what is being built, within realistic timelines, and how your feedback is incorporated.",
+        step_1_title: "Discovery & Goals",
+        step_1_desc: "We discuss your target audience and the key information required by your prospective customers.",
+        step_2_title: "Structure & Layout",
+        step_2_desc: "We map out the navigation hierarchy, color accents, and content layout before writing production code.",
+        step_3_title: "Frontend Engineering",
+        step_3_desc: "We write clean, lightweight code engineered for fast loading speeds even on weaker mobile connections.",
+        step_4_title: "Mobile Verification",
+        step_4_desc: "We stress-test the interface on multiple mobile screen sizes to ensure effortless reading and tapping.",
+        step_5_title: "Collaborative Review",
+        step_5_desc: "We review the project together to adjust texts, replace agreed imagery, and fine-tune every touchpoint.",
+        step_6_title: "Launch & Continuity",
+        step_6_desc: "Domain configuration, production deployment, and maintenance plans to keep your digital home reliable.",
+        about_badge: "About Us & Values",
+        about_title: "Rooted in the territory, focused on tangible utility",
+        about_desc: "We are a focused digital team with operational base planned in the Tuscia region. We avoid bloated contracts: we build websites that truly support local businesses.",
+        why_1_title: "Direct Communication",
+        why_1_desc: "You collaborate directly with the person designing and coding your pages. No call centers or intermediaries.",
+        why_2_title: "Attention to Detail",
+        why_2_desc: "We calibrate contrasts, typographic hierarchy, and responsiveness to project an authentic and professional brand image.",
+        why_3_title: "Mobile-First by Design",
+        why_3_desc: "We do not downgrade a desktop layout as an afterthought. We design primarily for people searching on the move.",
+        why_4_title: "Zero-Surprise Estimates",
+        why_4_desc: "Every item is explained upfront before work begins. No unexpected recurring lock-ins.",
+        contact_badge: "Get in Touch",
+        contact_title: "Let's discuss your upcoming website",
+        contact_desc: "Fill in the form describing your business. We will respond with an honest feasibility review and preliminary quote.",
+        contact_loc_label: "Operating Area",
+        contact_email_label: "Direct Email",
+        contact_email_note: "[Temporary placeholder pending final domain setup]",
+        contact_wa_label: "Direct WhatsApp Line",
+        contact_wa_note: "[Temporary placeholder: to be activated before commercial launch]",
+        contact_notice_title: "Direct Conversion Funnel:",
+        contact_notice_text: "We collect only essential details required to assess your project type and produce a well-tailored estimate.",
+        form_title: "Request for Information or Estimate",
+        form_name_label: "Full Name *",
+        form_biz_label: "Business Name *",
+        form_email_label: "Email Address *",
+        form_phone_label: "Phone Number (optional)",
+        form_type_label: "Desired Project Type",
+        opt_1: "Single-Page Showcase Website",
+        opt_2: "Structured Multi-Page Website",
+        opt_3: "Restyling of Existing Website",
+        opt_4: "Restaurant Website / Menu & Booking",
+        opt_5: "Other / Still deciding",
+        form_desc_label: "Brief Project Summary *",
+        form_privacy_text: "I confirm that I have reviewed the privacy notice and agree to the processing of my details to receive a project quote.",
+        form_privacy_link: "Read notice",
+        form_btn_submit: "Generate & Send Project Inquiry",
+        err_name: "Please enter your full name.",
+        err_biz: "Please enter your business or company name.",
+        err_email: "Please provide a valid email address.",
+        err_desc: "Please provide a brief description of your project.",
+        err_privacy: "You must check the privacy consent box to proceed.",
+        form_feedback_title: "Quote Inquiry Draft Generated Successfully",
+        form_feedback_desc: "In this static frontend prototype, this form formats an email draft directly into your default email app via mailto:, ensuring complete transparency without simulating non-existent backend transmissions.",
+        form_feedback_btn: "Open Your Email Client",
+        footer_bio: "Professional initiative crafting modern, fast, and transparent websites for local businesses across the Tuscia and Lazio regions.",
+        footer_nav_title: "Navigation",
+        footer_legal_title: "Legal & Transparency",
+        footer_privacy: "Privacy Notice (Placeholder)",
+        footer_cookie: "Cookie Policy",
+        footer_status_title: "Website Status",
+        footer_status_text: "Initial official release and demonstration showcase. Zero profiling trackers active.",
+        footer_rights: "All rights reserved. Honest engineering without deceptive claims.",
+        footer_compliance: "Final setup must include owner tax and legal identifiers prior to commercial launch.",
+        modal_badge: "Transparent Notice",
+        modal_title: "Privacy and Data Handling Notice",
+        modal_close_btn: "Understood"
+      }
+    };
+
+    let currentLang = 'it';
+
+    // -------------------------------------------------------------
+    // GESTIONE CAMBIO LINGUA ISTANTANEO
+    // -------------------------------------------------------------
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      // Aggiorna bottoni stato
+      document.getElementById('btn-lang-it').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-lang-it-m').classList.toggle('active', lang === 'it');
+      document.getElementById('btn-lang-en-m').classList.toggle('active', lang === 'en');
+
+      document.getElementById('btn-lang-it').setAttribute('aria-pressed', lang === 'it');
+      document.getElementById('btn-lang-en').setAttribute('aria-pressed', lang === 'en');
+
+      // Aggiorna tutti gli elementi con data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Aggiorna Metadati e Title
+      document.getElementById('meta-title').textContent = translations[lang].meta_title;
+      document.getElementById('meta-desc').setAttribute('content', translations[lang].meta_desc);
+      document.getElementById('og-title').setAttribute('content', translations[lang].meta_title);
+      document.getElementById('og-desc').setAttribute('content', translations[lang].meta_desc);
+    }
+
+    // -------------------------------------------------------------
+    // CONTROLLO MENU MOBILE
+    // -------------------------------------------------------------
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    function closeMobileMenu() {
+      mobileNav.classList.remove('open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // -------------------------------------------------------------
+    // GESTIONE FORM PREVENTIVO (VALIDAZIONE + MAILTO FALLBACK)
+    // -------------------------------------------------------------
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+
+      let hasError = false;
+
+      // Reset errori
+      document.querySelectorAll('.field-error').forEach(el => el.style.display = 'none');
+
+      const name = document.getElementById('user-name').value.trim();
+      const biz = document.getElementById('business-name').value.trim();
+      const email = document.getElementById('user-email').value.trim();
+      const phone = document.getElementById('user-phone').value.trim();
+      const type = document.getElementById('project-type').value;
+      const desc = document.getElementById('project-desc').value.trim();
+      const privacy = document.getElementById('privacy-consent').checked;
+
+      // Validazione formale accessibile
+      if (!name) {
+        document.getElementById('err-name').style.display = 'block';
+        hasError = true;
+      }
+      if (!biz) {
+        document.getElementById('err-biz').style.display = 'block';
+        hasError = true;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        document.getElementById('err-email').style.display = 'block';
+        hasError = true;
+      }
+      if (!desc) {
+        document.getElementById('err-desc').style.display = 'block';
+        hasError = true;
+      }
+      if (!privacy) {
+        document.getElementById('err-privacy').style.display = 'block';
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      // Costruzione mailto trasparente senza finte API
+      const recipient = "info@webtuscia.placeholder.it";
+      const subject = encodeURIComponent(`Richiesta Preventivo Web Tuscia: ${biz} (${name})`);
+      const body = encodeURIComponent(
+        `Nome Cliente: ${name}\n` +
+        `Attività: ${biz}\n` +
+        `Email: ${email}\n` +
+        `Telefono: ${phone || 'Non specificato'}\n` +
+        `Tipologia Progetto: ${type}\n\n` +
+        `Dettagli del Progetto:\n${desc}\n\n` +
+        `---\nConsenso privacy espresso nel form frontend.`
+      );
+
+      const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+      // Mostra alert trasparente con il link diretto
+      const feedbackBox = document.getElementById('form-feedback');
+      const fallbackLink = document.getElementById('mailto-fallback-link');
+      fallbackLink.setAttribute('href', mailtoUrl);
+      feedbackBox.style.display = 'block';
+
+      // Prova ad aprire il client di posta dell'utente
+      window.location.href = mailtoUrl;
+    }
+
+    // -------------------------------------------------------------
+    // FUNZIONALITÀ INTERATTIVE DIMOSTRATIVE (OSTERIA TUSCIA)
+    // -------------------------------------------------------------
+    function triggerDemoWhatsApp() {
+      const msg = currentLang === 'it' 
+        ? "Buongiorno Osteria della Tuscia, vorrei richiedere informazioni per riservare un tavolo per 2 persone per questo fine settimana."
+        : "Hello Osteria della Tuscia, I would like to inquire about reserving a table for 2 people this weekend.";
+      
+      // Utilizzo di numero dimostrativo esplicitamente non instradato
+      alert(
+        (currentLang === 'it' 
+          ? "SIMULATORE WHATSAPP (DEMO):\n\nNella versione di produzione per un cliente reale, questo pulsante apre direttamente WhatsApp (wa.me/39XXXXXXXXXX) con il seguente messaggio preimpostato:\n\n\""
+          : "WHATSAPP SIMULATOR (DEMO):\n\nIn a production environment for a real venue, this button opens WhatsApp directly with this pre-filled message:\n\n\"") +
+        msg + "\""
+      );
+    }
+
+    function simulateDemoNotice() {
+      alert(
+        currentLang === 'it'
+          ? "PROGETTO DIMOSTRATIVO 'Osteria della Tuscia':\n\nQuesto esempio è stato sviluppato per mostrare come WEB TUSCIA struttura un sito per ristoratori locali:\n- Menu consultabile al volo senza scaricare PDF pesanti\n- Mappa e orari chiari per ridurre telefonate ripetitive\n- Call-to-Action rapida verso WhatsApp per raccogliere richieste di prenotazione."
+          : "DEMONSTRATION SHOWCASE 'Osteria della Tuscia':\n\nThis demonstration illustrates how WEB TUSCIA crafts an effective website for local hospitality:\n- Lightweight digital menu requiring no heavy PDF downloads\n- Clear hours and location details reducing routine inquiries\n- Instant WhatsApp Call-to-Action to generate reservation inquiries."
+      );
+    }
+
+    function alertPlaceholderContact() {
+      alert(
+        currentLang === 'it'
+          ? "INFORMAZIONE DI TRASPARENZA:\nIl canale WhatsApp ufficiale di WEB TUSCIA verrà collegato al numero telefonico dedicato prima del lancio commerciale."
+          : "TRANSPARENCY NOTE:\nThe official WEB TUSCIA WhatsApp link will be connected to its dedicated business number prior to commercial launch."
+      );
+    }
+
+    // -------------------------------------------------------------
+    // GESTIONE MODALI (PRIVACY & COOKIE)
+    // -------------------------------------------------------------
+    function openPrivacyModal() {
+      document.getElementById('privacy-modal').classList.add('active');
+    }
+    function closePrivacyModal() {
+      document.getElementById('privacy-modal').classList.remove('active');
+    }
+    function openCookieModal() {
+      alert(
+        currentLang === 'it'
+          ? "COOKIE POLICY:\nQuesto sito statico non fa uso di cookie tecnici di profilazione, cookie pubblicitari o traccianti di terze parti. Non è richiesta l'accettazione di cookie banner invasivi."
+          : "COOKIE POLICY:\nThis static website does not employ profiling, tracking, or third-party marketing cookies. No invasive consent banner is required."
+      );
+    }
+
+    // Chiudi modale cliccando fuori
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('privacy-modal');
+      if (e.target === modal) {
+        closePrivacyModal();
+      }
+    });
+
+    // Anno corrente dinamico nel footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
